@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jerrin Anto | AI & Cloud Developer E-Portfolio</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="E-Portfolio of Jerrin Anto, AI Developer Intern, Cloud enthusiast, and Founder of F1 FoRgE. Explore my work experience, skill badges, and community initiatives.">
+  <meta name="keywords" content="Jerrin Anto, AI Developer, Cloud Developer, F1 FoRgE, GIGNI, GSSoC, Flutter, Python, B.Tech CSE, REVA University, Portfolio">
+  <meta name="author" content="Jerrin Anto">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Jerrin Anto | AI & Cloud Developer E-Portfolio">
+  <meta property="og:description" content="AI Developer Intern, Cloud enthusiast, and Founder of F1 FoRgE. Discover my certifications, internships, and open-source contributions.">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Background Ambient Glows -->
+  <div class="ambient-glow"></div>
+
+  <!-- ==========================================
+       HEADER & FLOATING NAVBAR
+       ========================================== */ -->
+  <header class="header" id="header">
+    <div class="container nav-container">
+      <a href="#home" class="logo">
+        Jerrin Anto<span class="logo-dot"></span>
+      </a>
+      
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <nav class="nav-menu-wrapper">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       HERO SECTION
+       ========================================== -->
+  <section class="section hero" id="home">
+    <div class="container hero-wrapper">
+      <div class="hero-content">
+        <span class="hero-hello">Welcome to my space</span>
+        <h1 class="hero-name gradient-text glow-text">Jerrin Anto</h1>
+        <div class="hero-subtitle">
+          I'm a <span class="typed-text" id="typed-text"></span>
+        </div>
+        <p class="hero-desc">
+          I am a passionate AI and Cloud enthusiast focused on building practical solutions, contributing to open-source projects, and leading communities. Currently pursuing CSE (AI & ML) at REVA University and developing solutions across Cloud Computing, Python, and Flutter.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">
+            Connect With Me <i class="fa-solid fa-arrow-trend-up"></i>
+          </a>
+          <a href="#experience" class="btn btn-secondary">
+            View Experience
+          </a>
+        </div>
+      </div>
+      
+      <div class="hero-visual">
+        <div class="profile-card-wrapper" id="profile-card-wrapper">
+          <div class="profile-card-glow"></div>
+          <div class="profile-card" id="profile-card">
+            <img src="./IMG_20260516_212312.jpg" alt="Jerrin Anto in front of Microsoft building" class="profile-img">
+            <div class="profile-badge">
+              <i class="fa-solid fa-circle-check profile-badge-logo"></i>
+              <div class="profile-badge-info">
+                <h4>AI Developer Intern</h4>
+                <p>@ GIGNI Community</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       ABOUT SECTION
+       ========================================== -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline">Introduction</span>
+        <h2 class="section-title gradient-text">About Me</h2>
+      </div>
+      
+      <div class="about-grid">
+        <div class="about-info">
+          <h3>Forging Builders. Creating Futures.</h3>
+          <p>
+            Currently exploring AI Engineering, Cloud Computing, DevOps, and App Development. I believe in learning by building and applying technology to solve meaningful real-world problems. 
+          </p>
+          <p>
+            Aside from coding, I lead a technology and learning community (F1 FoRgE) where members collaborate on cloud computing, content creation, and project-based learning. Let's connect and innovate together!
+          </p>
+          
+          <div class="about-stats">
+            <div class="stat-item">
+              <span class="stat-number">7+</span>
+              <span class="stat-label">Cohort Roles</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">1</span>
+              <span class="stat-label">Tech Community Founded</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">5</span>
+              <span class="stat-label">Badges & Certs</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">2029</span>
+              <span class="stat-label">Graduation Year</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="about-highlights">
+          <div class="glass-card highlight-card">
+            <div class="icon-box">
+              <i class="fa-solid fa-people-group"></i>
+            </div>
+            <div class="highlight-info">
+              <h4>F1 FoRgE Founder</h4>
+              <p>Founded and lead a student-driven tech community promoting collaborative learning, open-source, and cloud projects.</p>
+            </div>
+          </div>
+          
+          <div class="glass-card highlight-card">
+            <div class="icon-box">
+              <i class="fa-solid fa-code-fork"></i>
+            </div>
+            <div class="highlight-info">
+              <h4>GSSoC Contributor</h4>
+              <p>Selected contributor for GirlScript Summer of Code, collaborating on open-source repositories and software workflows.</p>
+            </div>
+          </div>
+          
+          <div class="glass-card highlight-card">
+            <div class="icon-box">
+              <i class="fa-solid fa-video"></i>
+            </div>
+            <div class="highlight-info">
+              <h4>Content Creator @Tech2007</h4>
+              <p>Publish educational tech content, tutorials, and insights covering Systems Programming, Linux, and Automation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       EXPERIENCE SECTION (TIMELINE)
+       ========================================== -->
+  <section class="section experience" id="experience">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline">My Journey</span>
+        <h2 class="section-title gradient-text">Work Experience</h2>
+      </div>
+      
+      <div class="timeline">
+        
+        <!-- Job 1 -->
+        <div class="timeline-item timeline-left">
+          <div class="timeline-card">
+            <span class="timeline-date">May 2026 - Present</span>
+            <h3 class="timeline-role">AI Developer</h3>
+            <span class="timeline-company">Gigni</span>
+            <span class="timeline-loc">Mumbai Metropolitan Region (Zorus 2.1 Internship Cohort)</span>
+            <div class="timeline-desc">
+              <p>Excited to begin my journey as an AI & Python Developer Intern under the Zorus 2.1 Cohort.</p>
+              <ul>
+                <li>Building impactful projects using Python and AI models</li>
+                <li>Developing real-world development and scripting experience</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="timeline-item timeline-right">
+          <div class="timeline-card">
+            <span class="timeline-date">May 2026 - Present</span>
+            <h3 class="timeline-role">Contributor</h3>
+            <span class="timeline-company">GirlScript Summer of Code</span>
+            <span class="timeline-loc">Bangalore Urban</span>
+            <div class="timeline-desc">
+              <p>Selected as an active contributor for GSSoC, working alongside global developer networks on open-source codebases.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job 3 -->
+        <div class="timeline-item timeline-left">
+          <div class="timeline-card">
+            <span class="timeline-date">May 2026 - Present</span>
+            <h3 class="timeline-role">Community Volunteer</h3>
+            <span class="timeline-company">TechNexus Community</span>
+            <span class="timeline-loc">Bengaluru</span>
+            <div class="timeline-desc">
+              <p>Volunteering in community development initiatives, supporting outreach, event organizing, and professional networking.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job 4 -->
+        <div class="timeline-item timeline-right">
+          <div class="timeline-card">
+            <span class="timeline-date">January 2026 - Present</span>
+            <h3 class="timeline-role">Content Creator</h3>
+            <span class="timeline-company">Tech2007</span>
+            <span class="timeline-loc">Bangalore Urban</span>
+            <div class="timeline-desc">
+              <p>Creating tech content focused on simplifying complex computer science topics:</p>
+              <ul>
+                <li>Topics include Software Engineering, AI, Cloud, Linux, and Developer workflows</li>
+                <li>Developing tutorials and projects covering C programming and systems coding</li>
+                <li>Building a growing community of student builders</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job 5 -->
+        <div class="timeline-item timeline-left">
+          <div class="timeline-card">
+            <span class="timeline-date">October 2025 - Present</span>
+            <h3 class="timeline-role">Founder</h3>
+            <span class="timeline-company">F1 FoRgE</span>
+            <span class="timeline-loc">Bengaluru</span>
+            <div class="timeline-desc">
+              <p>Established a student-driven tech community with a focus on collaborative learning:</p>
+              <ul>
+                <li>Empowering students to explore AI, Cloud, Open Source, and Software Development</li>
+                <li>Conducting practical project-based learning and resource-sharing sessions</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job 6 -->
+        <div class="timeline-item timeline-right">
+          <div class="timeline-card">
+            <span class="timeline-date">January 2026 - May 2026</span>
+            <h3 class="timeline-role">Generative AI Developer Intern</h3>
+            <span class="timeline-company">HiDevs</span>
+            <span class="timeline-loc">Bangalore Urban</span>
+            <div class="timeline-desc">
+              <p>Collaborated on Generative AI systems, implementing prompt workflows and researching model integrations.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job 7 -->
+        <div class="timeline-item timeline-left">
+          <div class="timeline-card">
+            <span class="timeline-date">June 2025 - September 2025</span>
+            <h3 class="timeline-role">Gen AI Intern</h3>
+            <span class="timeline-company">Scaler School of Technology</span>
+            <span class="timeline-loc">Bangalore Urban</span>
+            <div class="timeline-desc">
+              <p>Selected for the Young Innovator Internship Program to harness the power of AI creatively:</p>
+              <ul>
+                <li>Gained hands-on experience in Prompt Engineering and AI tools</li>
+                <li>Created websites and mobile apps with AI assistance, expediting design</li>
+                <li>Produced AI-generated videos for technical branding and presentations</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       PROJECTS & COMMUNITY SHOWCASE
+       ========================================== -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline">My Initiatives</span>
+        <h2 class="section-title gradient-text">Community & Projects</h2>
+      </div>
+      
+      <div class="projects-grid">
+        <!-- Card 1 -->
+        <div class="glass-card project-card">
+          <span class="project-tag">Leadership</span>
+          <h3>F1 FoRgE</h3>
+          <p>
+            A student-led technology community designed to bridge the gap between learning and building. We organize projects focusing on Cloud, AI, and Software Engineering.
+          </p>
+          <div class="project-meta">
+            <span class="project-role">Founder</span>
+            <a href="#about" class="project-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="glass-card project-card">
+          <span class="project-tag">Education</span>
+          <h3>Tech2007 Content</h3>
+          <p>
+            An educational initiative that simplifies complex systems programming, Linux command line workflows, AI implementations, and C programming for aspiring software engineers.
+          </p>
+          <div class="project-meta">
+            <span class="project-role">Content Creator</span>
+            <a href="https://www.instagram.com/jerrinanto2007" target="_blank" rel="noopener" class="project-link">View Page <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="glass-card project-card">
+          <span class="project-tag">Open Source</span>
+          <h3>GSSoC Contributor</h3>
+          <p>
+            Contributing to various open source repositories, maintaining quality code guidelines, resolving GitHub issues, and writing testing components.
+          </p>
+          <div class="project-meta">
+            <span class="project-role">Contributor</span>
+            <a href="https://github.com/ANTOJERRIN" target="_blank" rel="noopener" class="project-link">GitHub Profile <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SKILLS & CERTIFICATIONS SECTION
+       ========================================== -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline">My Skill Set</span>
+        <h2 class="section-title gradient-text">Skills & Badges</h2>
+      </div>
+      
+      <div class="skills-wrapper">
+        <div class="skills-categories">
+          <!-- Dev Skills -->
+          <div class="glass-card skill-cat-card">
+            <h3 class="skill-cat-title"><i class="fa-solid fa-code"></i> Languages & Development</h3>
+            <div class="skill-tags">
+              <span class="skill-tag"><i class="fa-brands fa-python"></i> Python Development</span>
+              <span class="skill-tag"><i class="fa-solid fa-laptop-code"></i> C Programming</span>
+              <span class="skill-tag"><i class="fa-solid fa-microchip"></i> Systems Programming</span>
+              <span class="skill-tag"><i class="fa-solid fa-mobile-screen-button"></i> Flutter & Dart</span>
+            </div>
+          </div>
+          
+          <!-- AI & Cloud -->
+          <div class="glass-card skill-cat-card">
+            <h3 class="skill-cat-title"><i class="fa-solid fa-brain"></i> AI & Cloud Engineering</h3>
+            <div class="skill-tags">
+              <span class="skill-tag"><i class="fa-solid fa-robot"></i> Artificial Intelligence</span>
+              <span class="skill-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> Generative AI</span>
+              <span class="skill-tag"><i class="fa-solid fa-terminal"></i> Prompt Engineering</span>
+              <span class="skill-tag"><i class="fa-solid fa-gears"></i> Machine Learning</span>
+              <span class="skill-tag"><i class="fa-brands fa-aws"></i> AWS Cloud</span>
+            </div>
+          </div>
+          
+          <!-- Leadership -->
+          <div class="glass-card skill-cat-card">
+            <h3 class="skill-cat-title"><i class="fa-solid fa-rocket"></i> Leadership & Management</h3>
+            <div class="skill-tags">
+              <span class="skill-tag"><i class="fa-solid fa-handshake-angle"></i> Volunteering</span>
+              <span class="skill-tag"><i class="fa-solid fa-users-viewfinder"></i> Volunteer Engagement</span>
+              <span class="skill-tag"><i class="fa-solid fa-chart-line"></i> Early Stage Ventures</span>
+              <span class="skill-tag"><i class="fa-solid fa-cubes"></i> Product Building</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Certifications Showcase -->
+        <div class="certifications-col">
+          <h3 class="glow-text" style="font-size: 1.5rem; margin-bottom: 10px; font-family: 'Outfit';">Certifications & Credentials</h3>
+          
+          <!-- Google Cloud Badge 1 -->
+          <div class="glass-card cert-card">
+            <div class="cert-icon">
+              <i class="fa-brands fa-google"></i>
+            </div>
+            <div class="cert-info">
+              <h4>Get Started with API Gateway</h4>
+              <p>Google Cloud Skill Badge</p>
+            </div>
+          </div>
+          
+          <!-- Google Cloud Badge 2 -->
+          <div class="glass-card cert-card">
+            <div class="cert-icon">
+              <i class="fa-brands fa-google"></i>
+            </div>
+            <div class="cert-info">
+              <h4>Analyze Speech & Language with Google APIs</h4>
+              <p>Google Cloud Skill Badge</p>
+            </div>
+          </div>
+          
+          <!-- Google Cloud Badge 3 -->
+          <div class="glass-card cert-card">
+            <div class="cert-icon">
+              <i class="fa-brands fa-google"></i>
+            </div>
+            <div class="cert-info">
+              <h4>Get Started with Cloud Storage</h4>
+              <p>Google Cloud Skill Badge</p>
+            </div>
+          </div>
+          
+          <!-- TEDx Badge -->
+          <div class="glass-card cert-card">
+            <div class="cert-icon">
+              <i class="fa-solid fa-microphone-lines"></i>
+            </div>
+            <div class="cert-info">
+              <h4>TEDxREVAUNIVERISTY - "Educate to Enterprise"</h4>
+              <p>Credential / Participation Badge</p>
+            </div>
+          </div>
+
+          <!-- Entrepreneurship Badge -->
+          <div class="glass-card cert-card">
+            <div class="cert-icon">
+              <i class="fa-solid fa-lightbulb"></i>
+            </div>
+            <div class="cert-info">
+              <h4>Innovation & Entrepreneurship</h4>
+              <p>Proficiency Level Certificate</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       EDUCATION SECTION
+       ========================================== -->
+  <section class="section education" id="education">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline">Academic Background</span>
+        <h2 class="section-title gradient-text">Education</h2>
+      </div>
+      
+      <div class="education-grid">
+        <!-- REVA -->
+        <div class="glass-card edu-card">
+          <div class="edu-icon-wrap">
+            <div class="edu-icon">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+          </div>
+          <div class="edu-info">
+            <span class="edu-duration">September 2025 - August 2029</span>
+            <h3 class="edu-degree">Bachelor of Technology</h3>
+            <span class="edu-school">REVA University</span>
+            <span class="edu-field">Computer Science (Artificial Intelligence / Machine Learning)</span>
+          </div>
+        </div>
+        
+        <!-- Pre University -->
+        <div class="glass-card edu-card">
+          <div class="edu-icon-wrap">
+            <div class="edu-icon">
+              <i class="fa-solid fa-school"></i>
+            </div>
+          </div>
+          <div class="edu-info">
+            <span class="edu-duration">June 2023 - March 2025</span>
+            <h3 class="edu-degree">Pre-University College (PCMC)</h3>
+            <span class="edu-school">New Horizon Pre-University College</span>
+            <span class="edu-field">Physics, Chemistry, Mathematics, Computer Science</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       CONTACT SECTION
+       ========================================== -->
+  <section class="section contact" id="contact">
+    <div class="container contact-container">
+      <div class="glass-card contact-card">
+        <div class="contact-logo">
+          <i class="fa-solid fa-paper-plane"></i>
+        </div>
+        <h3 class="gradient-text glow-text">Let's Connect & Build</h3>
+        <p>
+          I am always excited to connect with developers, builders, mentors, and innovators who are passionate about technology, collaboration, and continuous growth. Feel free to copy my contacts or connect with me via social links.
+        </p>
+        
+        <div class="contact-methods">
+          <div class="copy-badge" data-copy="ajant2007@gmail.com" data-label="Email">
+            <i class="fa-regular fa-envelope"></i> ajant2007@gmail.com <i class="fa-regular fa-copy"></i>
+          </div>
+          <div class="copy-badge" data-copy="+919566298639" data-label="Phone Number">
+            <i class="fa-solid fa-phone"></i> +91 9566298639 <i class="fa-regular fa-copy"></i>
+          </div>
+        </div>
+        
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/jerrin-anto-74a836392" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn Profile">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/ANTOJERRIN" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub Profile">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://www.instagram.com/jerrinanto0" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram Personal">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.instagram.com/jerrinanto2007" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram Creator">
+            <i class="fa-solid fa-video"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">
+        Jerrin Anto<span>.</span>
+      </div>
+      <p>&copy; 2026 Jerrin Anto. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Copy Notification -->
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-circle-check"></i> <span id="toast-text">Copied to clipboard!</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
