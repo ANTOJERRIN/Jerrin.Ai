@@ -189,3 +189,86 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+/* ==========================================
+   DYNAMIC YOUTUBE LATEST VIDEO PREVIEW
+   ========================================== */
+document.addEventListener('DOMContentLoaded', () => {
+  const feedContainer = document.getElementById('youtube-video-feed');
+
+  if (!feedContainer) {
+    return;
+  }
+
+  const channelHandle = feedContainer.dataset.channelHandle;
+  const videosUrl = feedContainer.dataset.videosUrl;
+  const feedCandidates = [
+    `https://www.youtube.com/feeds/videos.xml?user=${channelHandle}`,
+    `https://www.youtube.com/feeds/videos.xml?user=Tech2007`
+  ];
+
+  const renderFallback = () => {
+    feedContainer.innerHTML = `
+      <div class="youtube-feed-fallback">
+        <i class="fa-brands fa-youtube"></i>
+        <h3>Latest Tech2007 videos</h3>
+        <p>YouTube did not return an embeddable latest-video feed here, but the channel link is ready and opens the live videos page.</p>
+        <a href="${videosUrl}" target="_blank" rel="noopener" class="btn btn-youtube">
+          View Latest Videos <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+    `;
+  };
+
+  const renderVideo = (video) => {
+    const videoId = video.guid && video.guid.split(':').pop();
+    const title = video.title || 'Latest Tech2007 video';
+    const link = video.link || videosUrl;
+
+    if (!videoId) {
+      renderFallback();
+      return;
+    }
+
+    feedContainer.innerHTML = `
+      <iframe
+        src="https://www.youtube.com/embed/${videoId}"
+        title="${title.replace(/"/g, '&quot;')}"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+      <div class="youtube-video-details">
+        <span class="youtube-video-kicker">Latest upload</span>
+        <h3>${title}</h3>
+        <a href="${link}" target="_blank" rel="noopener">Watch on YouTube <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+    `;
+  };
+
+  const loadLatestVideo = async () => {
+    for (const feedUrl of feedCandidates) {
+      const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`;
+      const response = await fetch(apiUrl);
+
+      if (!response.ok) {
+        continue;
+      }
+
+      const data = await response.json();
+      const latestVideo = data.items && data.items[0];
+
+      if (latestVideo) {
+        renderVideo(latestVideo);
+        return;
+      }
+    }
+
+    renderFallback();
+  };
+
+  loadLatestVideo().catch(() => {
+    renderFallback();
+  });
+});
