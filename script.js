@@ -188,4 +188,83 @@ document.addEventListener('DOMContentLoaded', () => {
       timelineObserver.observe(item);
     });
   }
+
+  /* ==========================================
+     TECH CONTRIBUTIONS DASHBOARD INTERACTIVITY
+     ========================================== */
+  
+  // Filter Tabs
+  const tcFilterBtns = document.querySelectorAll('.tc-filter-btn');
+  const tcCards = document.querySelectorAll('.tc-platform-card');
+
+  if (tcFilterBtns.length > 0 && tcCards.length > 0) {
+    tcFilterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active state
+        tcFilterBtns.forEach(b => b.classList.remove('tc-active'));
+        btn.classList.add('tc-active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        tcCards.forEach((card, index) => {
+          const category = card.getAttribute('data-category') || '';
+          const shouldShow = filter === 'all' || category.includes(filter);
+
+          if (shouldShow) {
+            card.classList.remove('tc-hidden');
+            card.classList.add('tc-visible');
+            card.style.animationDelay = `${index * 0.08}s`;
+          } else {
+            card.classList.remove('tc-visible');
+            card.classList.add('tc-hidden');
+          }
+        });
+      });
+    });
+  }
+
+  // Scroll Reveal for Tech Contribution Cards
+  if (tcCards.length > 0) {
+    const tcObserverOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -30px 0px"
+    };
+
+    const tcObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('tc-revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, tcObserverOptions);
+
+    tcCards.forEach(card => {
+      tcObserver.observe(card);
+    });
+  }
+
+  // 3D Tilt Effect on Tech Contribution Cards
+  tcCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((centerY - y) / centerY) * 6;
+      const rotateY = ((x - centerX) / centerX) * 6;
+
+      card.style.transform = `translateY(-8px) scale(1.02) perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      card.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease';
+    });
+
+    card.addEventListener('mouseenter', () => {
+      card.style.transition = 'box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease';
+    });
+  });
 });
