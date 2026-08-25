@@ -41,9 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     sections.forEach(current => {
       const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 100; // Offset for fixed nav
+      const sectionTop = current.offsetTop - 120; // Offset for fixed nav
       const sectionId = current.getAttribute('id');
-      const activeLink = document.querySelector(`.nav-menu a[href*=${sectionId}]`);
+      const activeLink = document.querySelector(`.nav-menu a[href*="${sectionId}"]`);
 
       if (activeLink) {
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
@@ -60,17 +60,18 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================== */
   const typedTextSpan = document.getElementById('typed-text');
   const roles = [
-    "AI Developer Intern",
-    "Cloud Enthusiast",
-    "Open-Source Contributor",
-    "Founder of F1 FoRgE",
-    "Content Creator @Tech2007"
+    "AI Developer @ Nexstep Network",
+    "Founder of F1 Forge",
+    "AI & Python Intern @ GIGNI",
+    "Open-Source Contributor @ GSSoC",
+    "Content Creator @ Tech2007",
+    "CS (AI/ML) Undergrad @ REVA"
   ];
   
   let roleIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
-  let typingSpeed = 100;
+  let typingSpeed = 90;
 
   function type() {
     const currentRole = roles[roleIndex];
@@ -78,21 +79,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isDeleting) {
       typedTextSpan.textContent = currentRole.substring(0, charIndex - 1);
       charIndex--;
-      typingSpeed = 50; // speed up deletion
+      typingSpeed = 45; // speed up deletion
     } else {
       typedTextSpan.textContent = currentRole.substring(0, charIndex + 1);
       charIndex++;
-      typingSpeed = 120; // normal typing speed
+      typingSpeed = 100; // normal typing speed
     }
 
     // Checking states
     if (!isDeleting && charIndex === currentRole.length) {
-      typingSpeed = 1500; // wait before delete
+      typingSpeed = 1600; // wait before delete
       isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
       isDeleting = false;
       roleIndex = (roleIndex + 1) % roles.length;
-      typingSpeed = 500; // pause before next role
+      typingSpeed = 400; // pause before next role
     }
 
     setTimeout(type, typingSpeed);
@@ -100,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initial call
   if (typedTextSpan) {
-    setTimeout(type, 1000);
+    setTimeout(type, 800);
   }
 
   /* ==========================================
@@ -112,21 +113,19 @@ document.addEventListener('DOMContentLoaded', () => {
   if (cardWrapper && card) {
     cardWrapper.addEventListener('mousemove', (e) => {
       const rect = cardWrapper.getBoundingClientRect();
-      const x = e.clientX - rect.left; // x position inside element
-      const y = e.clientY - rect.top;  // y position inside element
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
       
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
       
-      // Calculate rotation angles (-15deg to 15deg)
-      const rotateX = ((centerY - y) / centerY) * 12;
-      const rotateY = ((x - centerX) / centerX) * 12;
+      const rotateX = ((centerY - y) / centerY) * 10;
+      const rotateY = ((x - centerX) / centerX) * 10;
       
       card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     });
 
     cardWrapper.addEventListener('mouseleave', () => {
-      // Reset card tilt
       card.style.transform = 'rotateX(0deg) rotateY(0deg)';
       card.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
     });
@@ -149,11 +148,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const label = element.getAttribute('data-label') || "Information";
       
       navigator.clipboard.writeText(textToCopy).then(() => {
-        // Show Toast
         toastText.textContent = `${label} copied to clipboard!`;
         toast.classList.add('show');
         
-        // Hide after 3 seconds
         setTimeout(() => {
           toast.classList.remove('show');
         }, 3000);
@@ -178,7 +175,6 @@ document.addEventListener('DOMContentLoaded', () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          // Once animated, stop observing this item
           observer.unobserve(entry.target);
         }
       });
@@ -190,17 +186,54 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================
+     LIGHTBOX MODAL FOR CERTIFICATES & IMAGES
+     ========================================== */
+  const lightboxModal = document.getElementById('lightbox-modal');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const lightboxClose = document.getElementById('lightbox-close');
+  const lightboxOverlay = document.getElementById('lightbox-overlay');
+  const lightboxTriggers = document.querySelectorAll('[data-lightbox]');
+
+  if (lightboxModal && lightboxImg) {
+    lightboxTriggers.forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const imgSrc = trigger.getAttribute('data-lightbox');
+        const caption = trigger.getAttribute('data-caption') || '';
+        
+        lightboxImg.src = imgSrc;
+        lightboxCaption.textContent = caption;
+        lightboxModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    const closeLightbox = () => {
+      lightboxModal.classList.remove('active');
+      document.body.style.overflow = '';
+      lightboxImg.src = '';
+    };
+
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    if (lightboxOverlay) lightboxOverlay.addEventListener('click', closeLightbox);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightboxModal.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+  }
+
+  /* ==========================================
      TECH CONTRIBUTIONS DASHBOARD INTERACTIVITY
      ========================================== */
-  
-  // Filter Tabs
   const tcFilterBtns = document.querySelectorAll('.tc-filter-btn');
   const tcCards = document.querySelectorAll('.tc-platform-card');
 
   if (tcFilterBtns.length > 0 && tcCards.length > 0) {
     tcFilterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-        // Update active state
         tcFilterBtns.forEach(b => b.classList.remove('tc-active'));
         btn.classList.add('tc-active');
 
@@ -258,7 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
       card.style.transform = `translateY(-8px) scale(1.02) perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     });
 
-    card.addEventListener('mouseleave', () => {
+    cardWrapper && card.addEventListener('mouseleave', () => {
       card.style.transform = '';
       card.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease';
     });
@@ -267,4 +300,5 @@ document.addEventListener('DOMContentLoaded', () => {
       card.style.transition = 'box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease';
     });
   });
+
 });
