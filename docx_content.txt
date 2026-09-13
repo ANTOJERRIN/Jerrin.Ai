@@ -1,0 +1,67 @@
+
+JERRIN ANTO
+AI Developer  |  Founder, F1 Forge  |  Open Source Contributor
+Bengaluru, Karnataka, India   |   ajant2007@gmail.com   |   +91 95662 98639linkedin.com/in/jerrin-anto-74a836392   |   github.com/ANTOJERRIN
+
+SUMMARY
+AI Developer and Computer Science undergraduate (AI/ML) with hands-on experience across generative AI, cloud computing, and full-stack product development. Builds AI-powered products end to end — from problem discovery and validation through prototyping and deployment — with prior work spanning healthcare AI, campus logistics, transportation-integrated food delivery, and recommendation systems. Founder of a growing student technology community that pivoted from a pure learning group into a research-driven, startup-oriented team, and an active open-source contributor and technical content creator with a consistent record of self-directed learning across AI, cloud, and software engineering.
+EXPERIENCE
+AI & Python Developer Intern  —  GIGNI — Zorus 2.1 Internship Cohort	May 2026 – Present
+Mumbai Metropolitan Region (Remote)
+Building AI and Python-driven solutions as part of a competitive, cohort-based internship program.
+Applying practical software development and AI integration skills to real-world project deliverables.
+Generative AI Developer Intern  —  HiDevs	Jan 2026 – May 2026
+Bangalore Urban
+Developed generative AI features and workflows, applying prompt engineering and API integration to practical use cases.
+Collaborated on AI-driven product components, strengthening applied machine learning and deployment skills.
+Open Source Contributor  —  GirlScript Summer of Code (GSSoC)	May 2026 – Present
+Bangalore Urban
+Contributing to open-source repositories, including code contributions, issue resolution, and collaborative development with a distributed contributor community.
+Founder  —  F1 Forge	Oct 2025 – Present
+Bengaluru
+Founded and lead a student-driven technology community focused on AI, cloud computing, software development, and open source, growing it into a multi-institution network.
+Pivoted the organization's direction after evaluating member engagement data, moving from a pure learning/freelancing model to a research-driven, startup-oriented team following a structured Research → Problem Discovery → Validation → Product → Startup workflow.
+Lead a core team responsible for technology research, opportunity evaluation, mentoring contributors, and coordinating cross-college collaboration, shifting the team's role from operational coordination to strategic leadership.
+Content Creator  —  Tech2007	Oct 2025 – Present
+Bengaluru
+Create technical content covering Software Engineering, AI, Cloud Computing, Linux, and Developer Workflows, including tutorials and project walkthroughs for students and aspiring developers.
+Manage the full content pipeline — research, scripting, recording, editing, and publishing — while growing an engaged learning community.
+Community Volunteer  —  TechNexus Community	May 2026 – Present
+Bengaluru
+Support community engagement and welfare initiatives, and help create networking opportunities among members.
+Gen AI Intern — Young Innovator Internship Program  —  Scaler School of Technology	Jun 2025 – Sep 2025
+Bangalore Urban
+Gained hands-on experience in prompt engineering, building AI-generated websites, AI-assisted mobile apps, and AI-generated video content.
+Explored the practical application of AI across tech, design, and communication workflows.
+SELECTED PROJECTS
+SilverCare — AI Companion for Elderly Care  —  Personal / Independent Project	
+Designed an AI companion concept for elderly users covering medicine reminders, emergency SOS, family notifications, and voice-based interaction using Flutter, FastAPI, Firebase, and ElevenLabs.
+Cardio.AI (WithLove) — Heart Disease Risk Prediction  —  Personal / Independent Project	
+Built an AI-assisted cardiovascular risk assessment concept using ~28 medical parameters, combining a Python/ML prediction model with an accessible, visualization-first Flutter interface.
+QuickNest — Campus Delivery Platform  —  Personal / Independent Project	
+Designed a hyperlocal, campus-exclusive delivery platform concept with AI-based food recommendations, real-time order tracking, and merchant/delivery dashboards using React, Firebase, and FastAPI.
+FOOH (Food Outcome & Health)  —  AMD Slingshot Campus Hackathon, powered by Hack2Skill	
+Built an AI-driven concept connecting food choices to health outcomes under hackathon time constraints, from rapid ideation through team-based development and final pitch.
+JFOODS — Transit-Integrated Food Delivery  —  Personal / Independent Project	
+Conceived a food delivery model integrated with railway, highway, and long-distance bus travel, applying logistics and customer-journey thinking beyond a typical software-only product.
+Wellness  —  Academic Project	
+Developed a Python-based wellness application as part of coursework, applying core application-structure and collaborative-development practices.
+Personal Portfolio  —  Personal Project	
+Built and iteratively improved a responsive personal portfolio site with React, resolving Vite build and deployment issues, and hosted via Netlify.
+TECHNICAL SKILLS
+Languages: Python, Java, C
+AI / ML: Generative AI, Prompt Engineering, Gemini API, Machine Learning, AI Agents
+Web & Mobile: React, Flutter, FastAPI, REST APIs
+Cloud & DevOps: Google Cloud Platform, Firebase (Firestore, Auth, Storage, Cloud Messaging), Docker, Linux/WSL
+Tools: Git, GitHub, VS Code, Netlify, Render
+Other: Data Structures & Algorithms, Open Source Collaboration, Technical Content Creation, Community Leadership
+EDUCATION
+Bachelor of Technology — Computer Science (AI & Machine Learning)  —  REVA University, Bengaluru	Sep 2025 – Aug 2029
+Pre-University (PCMC)  —  New Horizon Pre-University College	Jun 2023 – Mar 2025
+CERTIFICATIONS & RECOGNITION
+TEDxREVAUniversity
+Get Started with API Gateway — Google Cloud Skill Badge
+Analyze Speech and Language with Google APIs — Skill Badge
+Get Started with Cloud Storage — Google Cloud Skill Badge
+Innovation and Entrepreneurship — Proficiency Level
+"Educate to Enterprise" Recognition
