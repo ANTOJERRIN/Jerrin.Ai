@@ -1,6 +1,6 @@
 
 JERRIN ANTO
-AI Developer  |  Founder, F1 Forge  |  Open Source Contributor
+AI Developer  |  Founder, ForMa  |  Open Source Contributor
 Bengaluru, Karnataka, India   |   ajant2007@gmail.com   |   +91 95662 98639linkedin.com/in/jerrin-anto-74a836392   |   github.com/ANTOJERRIN
 
 SUMMARY
@@ -17,7 +17,7 @@ Collaborated on AI-driven product components, strengthening applied machine lear
 Open Source Contributor  —  GirlScript Summer of Code (GSSoC)	May 2026 – Present
 Bangalore Urban
 Contributing to open-source repositories, including code contributions, issue resolution, and collaborative development with a distributed contributor community.
-Founder  —  F1 Forge	Oct 2025 – Present
+Founder  —  ForMa	Oct 2025 – Present
 Bengaluru
 Founded and lead a student-driven technology community focused on AI, cloud computing, software development, and open source, growing it into a multi-institution network.
 Pivoted the organization's direction after evaluating member engagement data, moving from a pure learning/freelancing model to a research-driven, startup-oriented team following a structured Research → Problem Discovery → Validation → Product → Startup workflow.

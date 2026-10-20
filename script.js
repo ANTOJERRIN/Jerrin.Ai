@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const typedTextSpan = document.getElementById('typed-text');
   const roles = [
     "AI Developer @ Nexstep Network",
-    "Founder of F1 Forge",
+    "Founder of ForMa",
     "AI & Python Intern @ GIGNI",
     "Open-Source Contributor @ GSSoC",
     "Content Creator @ Tech2007",
