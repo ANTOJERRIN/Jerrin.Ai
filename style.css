@@ -1012,7 +1012,7 @@ a {
 /* Projects Grid */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
 
@@ -2222,3 +2222,14 @@ a {
     padding: 30px 20px;
   }
 }
+
+/* ForMa branding and repository actions */
+.forma-company { display: flex; align-items: center; gap: 10px; }
+.forma-timeline-logo { object-fit: contain; border-radius: 8px; }
+.projects .project-card { min-width: 0; }
+.projects .project-header { gap: 12px; }
+.projects .project-tag { text-align: right; }
+.projects .project-card-text { flex-grow: 1; }
+.projects .project-meta { justify-content: flex-end; }
+.projects .project-link { display: inline-flex; align-items: center; gap: 8px; padding: 8px 2px; }
+.projects .project-link:focus-visible { outline: 2px solid var(--color-cyan); outline-offset: 4px; border-radius: 4px; }
