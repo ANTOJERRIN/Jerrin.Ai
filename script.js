@@ -60,11 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================== */
   const typedTextSpan = document.getElementById('typed-text');
   const roles = [
-    "AI Developer @ Nexstep Network",
+    "Core Developer @ Nexstep Network",
     "Founder of ForMa",
-    "AI & Python Intern @ GIGNI",
+    "AI & Python Developer",
     "Open-Source Contributor @ GSSoC",
-    "Content Creator @ Tech2007",
+    "Technical Content Creator @ CodeWithJeru",
     "CS (AI/ML) Undergrad @ REVA"
   ];
   
