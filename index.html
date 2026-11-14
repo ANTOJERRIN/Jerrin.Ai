@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#061820">
   <title>Jerrin Anto | AI Developer, Core Startup Engineer & Founder</title>
   
   <!-- SEO Meta Tags -->
@@ -24,26 +25,22 @@
 </head>
 <body>
 
-  <!-- Background Ambient Glows -->
-  <div class="ambient-glow"></div>
-  <div class="ambient-glow glow-secondary"></div>
-
   <!-- ==========================================
        HEADER & FLOATING NAVBAR
        ========================================== -->
   <header class="header" id="header">
     <div class="container nav-container">
       <a href="#home" class="logo">
-        <span class="logo-accent">J</span>errin Anto<span class="logo-dot"></span>
+        Jerrin Anto<span class="logo-dot"></span>
       </a>
       
-      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation" aria-controls="nav-menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
       
-      <nav class="nav-menu-wrapper">
+      <nav class="nav-menu-wrapper" aria-label="Main navigation">
         <ul class="nav-menu" id="nav-menu">
           <li><a href="#home" class="nav-link active">Home</a></li>
           <li><a href="#about" class="nav-link">About</a></li>
@@ -64,15 +61,16 @@
        HERO SECTION
        ========================================== -->
   <section class="section hero" id="home">
+    <div class="hero-water" aria-hidden="true"></div>
     <div class="container hero-wrapper">
       <div class="hero-content">
         <div class="hero-status-pill">
           <span class="status-indicator"></span> Available for AI Engineering &amp; High-Impact Roles
         </div>
         <h1 class="hero-name gradient-text glow-text">Jerrin Anto</h1>
-        <div class="hero-subtitle">
-          I'm a <span class="typed-text" id="typed-text"></span>
-        </div>
+        <p class="hero-subtitle">
+          AI developer &amp; startup engineer
+        </p>
         <p class="hero-desc">
           AI Developer and Computer Science undergraduate (AI/ML) at <strong>REVA University</strong>. Core Developer at <strong>Nexstep Network</strong> and Founder of <strong>ForMa</strong>. I build software with Python, React, FastAPI, and PostgreSQL, with a focus on generative AI and API integration.
         </p>
@@ -91,7 +89,6 @@
       
       <div class="hero-visual">
         <div class="profile-card-wrapper" id="profile-card-wrapper">
-          <div class="profile-card-glow"></div>
           <div class="profile-card" id="profile-card">
             <img src="./IMG_20260516_212312.jpg" alt="Jerrin Anto at Microsoft Bangalore" class="profile-img">
             
@@ -122,7 +119,6 @@
   <section class="section about" id="about">
     <div class="container">
       <div class="section-header">
-        <span class="section-tagline">Introduction &amp; Philosophy</span>
         <h2 class="section-title gradient-text">About Me</h2>
       </div>
       
@@ -197,7 +193,6 @@
   <section class="section experience" id="experience">
     <div class="container">
       <div class="section-header">
-        <span class="section-tagline">Professional Trajectory</span>
         <h2 class="section-title gradient-text">Work Experience &amp; Roles</h2>
       </div>
       
@@ -347,7 +342,6 @@
   <section class="section projects" id="projects">
     <div class="container">
       <div class="section-header">
-        <span class="section-tagline">Engineered Solutions</span>
         <h2 class="section-title gradient-text">Featured Projects</h2>
       </div>
 
@@ -481,7 +475,6 @@
   <section class="section achievements-section" id="achievements">
     <div class="container">
       <div class="section-header">
-        <span class="section-tagline">Honors &amp; Recognition</span>
         <h2 class="section-title gradient-text">Major Achievements</h2>
       </div>
 
@@ -573,7 +566,6 @@
   <section class="section short-film-section" id="short-film">
     <div class="container">
       <div class="section-header">
-        <span class="section-tagline">Creative Excellence</span>
         <h2 class="section-title gradient-text">Fresher's Week 1st Prize — Short Film</h2>
       </div>
 
@@ -611,35 +603,11 @@
   </section>
 
   <!-- ==========================================
-       YOUTUBE CHANNEL SECTION
-       ========================================== -->
-  <section class="section youtube" id="youtube">
-    <div class="container">
-      <div class="youtube-card glass-card">
-        <div class="youtube-content">
-          <span class="section-tagline">Featured Channel</span>
-          <h2 class="section-title gradient-text">Tech2007 on YouTube</h2>
-          <p>
-            A clean gateway to my Tech2007 YouTube channel for tech content, coding tutorials, Linux workflows, AI ideas, and builder-focused learning.
-          </p>
-          <div class="youtube-actions">
-            <a href="https://www.youtube.com/@Tech2007-g5m" target="_blank" rel="noopener" class="btn btn-youtube btn-youtube-large" aria-label="Open Tech2007 YouTube channel">
-              <i class="fa-brands fa-youtube"></i> Visit Tech2007 Channel
-            </a>
-            <span class="youtube-handle">@Tech2007-g5m</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================
        SKILLS & CERTIFICATIONS SECTION
        ========================================== -->
   <section class="section skills" id="skills">
     <div class="container">
       <div class="section-header">
-        <span class="section-tagline">Technical Arsenal</span>
         <h2 class="section-title gradient-text">Skills &amp; Credentials</h2>
       </div>
       
@@ -774,7 +742,6 @@
   <section class="section education" id="education">
     <div class="container">
       <div class="section-header">
-        <span class="section-tagline">Academic Foundation</span>
         <h2 class="section-title gradient-text">Education</h2>
       </div>
       
@@ -840,14 +807,10 @@
     </div>
   </section>
 
-  <!-- ==========================================
-       YOUTUBE CHANNEL SECTION
-       ========================================== -->
   <section class="section youtube" id="youtube">
     <div class="container">
       <div class="youtube-card glass-card">
         <div class="youtube-content">
-          <span class="section-tagline">Featured Channel</span>
           <h2 class="section-title gradient-text">Tech2007 on YouTube</h2>
           <p>
             Watch tutorials, Linux workflows, AI breakdowns, and systems programming guides created on Tech2007 directly from this preview:
@@ -885,7 +848,6 @@
   <section class="section tech-contributions-section" id="tech-contributions">
     <div class="container">
       <div class="section-header">
-        <span class="section-tagline">Developer Footprint</span>
         <h2 class="section-title gradient-text">Platforms &amp; Ecosystem</h2>
       </div>
 

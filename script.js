@@ -4,21 +4,29 @@ document.addEventListener('DOMContentLoaded', () => {
      MOBILE NAVIGATION MENU
      ========================================== */
   const mobileToggle = document.getElementById('mobile-toggle');
-  const navMenu = document.getElementById('nav-menu');
+  const navMenu = document.querySelector('.nav-menu-wrapper');
   const navLinks = document.querySelectorAll('.nav-link');
 
   if (mobileToggle && navMenu) {
+    function setMenuOpen(open) {
+      mobileToggle.classList.toggle('active', open);
+      mobileToggle.setAttribute('aria-expanded', String(open));
+      navMenu.classList.toggle('active', open);
+    }
+
     mobileToggle.addEventListener('click', () => {
-      mobileToggle.classList.toggle('active');
-      navMenu.classList.toggle('active');
+      setMenuOpen(mobileToggle.getAttribute('aria-expanded') === 'false');
     });
 
-    // Close mobile menu when clicking any nav link
     navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-      });
+      link.addEventListener('click', () => setMenuOpen(false));
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && mobileToggle.getAttribute('aria-expanded') === 'true') {
+        setMenuOpen(false);
+        mobileToggle.focus();
+      }
     });
   }
 
@@ -54,86 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-
-  /* ==========================================
-     DYNAMIC TYPING ANIMATION
-     ========================================== */
-  const typedTextSpan = document.getElementById('typed-text');
-  const roles = [
-    "Core Developer @ Nexstep Network",
-    "Founder of ForMa",
-    "AI & Python Developer",
-    "Open-Source Contributor @ GSSoC",
-    "Technical Content Creator @ CodeWithJeru",
-    "CS (AI/ML) Undergrad @ REVA"
-  ];
-  
-  let roleIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let typingSpeed = 90;
-
-  function type() {
-    const currentRole = roles[roleIndex];
-    
-    if (isDeleting) {
-      typedTextSpan.textContent = currentRole.substring(0, charIndex - 1);
-      charIndex--;
-      typingSpeed = 45; // speed up deletion
-    } else {
-      typedTextSpan.textContent = currentRole.substring(0, charIndex + 1);
-      charIndex++;
-      typingSpeed = 100; // normal typing speed
-    }
-
-    // Checking states
-    if (!isDeleting && charIndex === currentRole.length) {
-      typingSpeed = 1600; // wait before delete
-      isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      roleIndex = (roleIndex + 1) % roles.length;
-      typingSpeed = 400; // pause before next role
-    }
-
-    setTimeout(type, typingSpeed);
-  }
-
-  // Initial call
-  if (typedTextSpan) {
-    setTimeout(type, 800);
-  }
-
-  /* ==========================================
-     3D PARALLAX EFFECT FOR PROFILE CARD
-     ========================================== */
-  const cardWrapper = document.getElementById('profile-card-wrapper');
-  const card = document.getElementById('profile-card');
-
-  if (cardWrapper && card) {
-    cardWrapper.addEventListener('mousemove', (e) => {
-      const rect = cardWrapper.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      const rotateX = ((centerY - y) / centerY) * 10;
-      const rotateY = ((x - centerX) / centerX) * 10;
-      
-      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    });
-
-    cardWrapper.addEventListener('mouseleave', () => {
-      card.style.transform = 'rotateX(0deg) rotateY(0deg)';
-      card.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-    });
-
-    cardWrapper.addEventListener('mouseenter', () => {
-      card.style.transition = 'none';
-    });
-  }
 
   /* ==========================================
      CLIPBOARD COPY WITH TOAST NOTIFICATION
