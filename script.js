@@ -30,37 +30,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ==========================================
-     HEADER SCROLL EFFECT & SCROLLSPY
-     ========================================== */
-  const header = document.getElementById('header');
-  const sections = document.querySelectorAll('section[id]');
+  const deck = document.getElementById('portfolio-deck');
+  const panels = new Map(Array.from(deck.children, panel => [panel.id, panel]));
 
-  window.addEventListener('scroll', () => {
-    // 1. Toggle header background on scroll
-    if (window.scrollY > 50) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
+  function showPanel(id, focus = false) {
+    const active = panels.get(id) ?? panels.get('home');
+    for (const panel of panels.values()) panel.hidden = panel !== active;
+    for (const link of navLinks) {
+      const current = link.hash === '#' + active.id;
+      link.classList.toggle('active', current);
+      if (current) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
     }
+    deck.scrollTop = 0;
+    if (focus) {
+      const heading = active.querySelector('h1, h2, h3') ?? active;
+      heading.tabIndex = -1;
+      heading.focus({ preventScroll: true });
+    }
+  }
 
-    // 2. Scrollspy active link detection
-    let scrollY = window.pageYOffset;
-    
-    sections.forEach(current => {
-      const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 120; // Offset for fixed nav
-      const sectionId = current.getAttribute('id');
-      const activeLink = document.querySelector(`.nav-menu a[href*="${sectionId}"]`);
-
-      if (activeLink) {
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          activeLink.classList.add('active');
-        } else {
-          activeLink.classList.remove('active');
-        }
-      }
-    });
+  document.documentElement.classList.add('has-portfolio-deck');
+  const showLocation = () => showPanel(location.hash.slice(1));
+  showLocation();
+  window.addEventListener('hashchange', showLocation);
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[href^="#"]');
+    if (!link || event.defaultPrevented || event.button !== 0 ||
+        event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+    const panelId = link.hash.slice(1);
+    if (!panels.has(panelId)) return;
+    event.preventDefault();
+    if (location.hash !== link.hash) history.pushState(null, '', link.hash);
+    showPanel(panelId, true);
   });
 
   /* ==========================================

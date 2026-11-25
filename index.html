@@ -28,6 +28,7 @@
   <!-- ==========================================
        HEADER & FLOATING NAVBAR
        ========================================== -->
+    <div class="hero-reels" id="hero-reels" aria-hidden="true" hidden></div>
   <header class="header" id="header">
     <div class="container nav-container">
       <a href="#home" class="logo">
@@ -51,18 +52,22 @@
           <li><a href="#education" class="nav-link">Education</a></li>
           <li><a href="#resume-section" class="nav-link">Resume</a></li>
           <li><a href="#tech-contributions" class="nav-link">Platforms</a></li>
+          <li><a href="#achievements" class="nav-link">Achievements</a></li>
+          <li><a href="#short-film" class="nav-link">Short film</a></li>
+          <li><a href="#youtube" class="nav-link">YouTube</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </nav>
+      <button class="btn btn-secondary reel-motion" id="reel-motion" type="button" hidden>Pause background reels</button>
     </div>
   </header>
 
   <!-- ==========================================
        HERO SECTION
        ========================================== -->
+  <main class="portfolio-deck" id="portfolio-deck">
   <section class="section hero" id="home">
     <div class="hero-water" aria-hidden="true"></div>
-    <div class="hero-reels" id="hero-reels" aria-hidden="true" hidden></div>
     <div class="container hero-wrapper">
       <div class="hero-content">
         <div class="hero-status-pill">
@@ -88,7 +93,6 @@
         </div>
       </div>
       
-      <button class="btn btn-secondary reel-motion" id="reel-motion" type="button" hidden>Pause background reels</button>
       <div class="hero-visual">
         <div class="profile-card-wrapper" id="profile-card-wrapper">
           <div class="profile-card" id="profile-card">
@@ -112,6 +116,11 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="container home-cards" aria-label="Featured portfolio cards">
+      <a class="glass-card home-card" href="#projects"><span>Projects</span><strong>Software &amp; AI</strong><span aria-hidden="true">↗</span></a>
+      <a class="glass-card home-card" href="#creator"><span>CodeWithJeru</span><strong>Latest reels</strong><span aria-hidden="true">↗</span></a>
+      <a class="glass-card home-card" href="#experience"><span>Experience</span><strong>Teams &amp; internships</strong><span aria-hidden="true">↗</span></a>
     </div>
   </section>
 
@@ -1059,6 +1068,7 @@
   <!-- ==========================================
        FOOTER
        ========================================== -->
+  </main>
   <footer class="footer">
     <div class="container footer-flex">
       <div class="footer-logo">
