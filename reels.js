@@ -1,159 +1,165 @@
 (() => {
-  const feed = 'https://raw.githubusercontent.com/ANTOJERRIN/Jerrin.Ai/main/reels.json';
-  const profile = 'https://www.instagram.com/codewithjeru/';
-  const hero = document.getElementById('hero-reels');
-  const motionButton = document.getElementById('reel-motion');
-  const player = document.getElementById('latest-reel');
-  const placeholder = document.getElementById('reel-placeholder');
-  const caption = document.getElementById('reel-caption');
-  const controls = document.getElementById('reel-controls');
-  const link = document.getElementById('reel-link');
+  const reels = [
+    ['argon', 'Argon analysis'],
+    ['claude', 'Claude Fable 5.2'],
+    ['gemini', 'Gemini 4 Carbon'],
+    ['spiral', 'Spiral'],
+    ['muse', 'Meta Muse'],
+    ['evolution', 'AI Evolution']
+  ];
+  const directory = './media/reels/';
+  const backdrop = document.getElementById('hero-reels');
+  const motion = document.getElementById('reel-motion');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  const smallScreen = matchMedia('(max-width: 760px)');
-  const saveData = navigator.connection?.saveData;
-  let reels = [];
+  const mobile = matchMedia('(max-width: 760px)');
+  const player = document.getElementById('showreel-video');
+  const dialog = document.getElementById('showreel');
+  const gallery = document.getElementById('reel-gallery');
+  const playlist = document.getElementById('showreel-list');
+  let paused = false;
   let selected = 0;
-  let playerVisible = false;
-  let backgroundPaused = false;
-  let autoStarted = false;
-  let backgroundSources = [];
 
-  function showReel() {
-    const reel = reels[selected];
-    if (!reel) return;
-    player.pause();
-    player.muted = true;
-    player.hidden = !reel.media;
-    placeholder.hidden = Boolean(reel.media);
-    if (reel.media) {
-      player.src = reel.media;
-    } else {
-      player.removeAttribute('src');
-      player.load();
+  function syncBackdrop() {
+    for (const video of backdrop.children) {
+      if (paused || document.hidden || dialog.open) video.pause();
+      else video.play().catch(() => {});
     }
-    caption.textContent = reel.caption || 'CodeWithJeru reel';
-    link.href = reel.permalink;
-    link.hidden = false;
-    placeholder.querySelector('a').href = reel.permalink;
-    controls.hidden = reels.length < 2;
   }
 
-  function selectReel(offset) {
-    if (!reels.length) return;
-    selected = (selected + offset + reels.length) % reels.length;
-    showReel();
-    if (!player.hidden) player.play().catch(() => {});
+  function buildBackdrop() {
+    const count = mobile.matches ? 2 : 3;
+    backdrop.replaceChildren();
+    backdrop.hidden = reducedMotion.matches || Boolean(navigator.connection?.saveData);
+    motion.hidden = backdrop.hidden;
+    if (backdrop.hidden) return;
+    for (let lane = 0; lane < count; lane++) {
+      const video = document.createElement('video');
+      video.defaultMuted = true;
+      video.muted = true;
+      video.playsInline = true;
+      video.preload = 'none';
+      let index = lane;
+      const setSource = () => {
+        video.src = directory + reels[index][0] + '-loop.mp4';
+      };
+      video.addEventListener('ended', () => {
+        index = (index + count) % reels.length;
+        setSource();
+        syncBackdrop();
+      });
+      setSource();
+      backdrop.append(video);
+    }
+    syncBackdrop();
   }
 
-  function startPlayer() {
-    if (autoStarted || !playerVisible || player.hidden || reducedMotion.matches ||
-        saveData || document.hidden) return;
-    autoStarted = true;
+  function playReel(index) {
+    selected = index;
+    const [file, title] = reels[index];
+    player.src = directory + file + '.mp4';
+    player.poster = directory + file + '.webp';
+    player.setAttribute('aria-label', title);
+    for (const [i, button] of Array.from(playlist.children).entries()) {
+      button.setAttribute('aria-pressed', String(i === index));
+    }
+    if (!dialog.open) dialog.showModal();
+    syncBackdrop();
     player.play().catch(() => {});
   }
 
-  function updateBackground() {
-    if (hero.hidden || backgroundPaused || document.hidden) {
-      hero.querySelectorAll('video').forEach(video => video.pause());
-      return;
-    }
-    hero.querySelectorAll('video').forEach(video => video.play().catch(() => {}));
+  for (const [index, [file, title]] of reels.entries()) {
+    const card = document.createElement('button');
+    card.className = 'reel-card glass-card';
+    card.type = 'button';
+    const poster = document.createElement('img');
+    poster.src = directory + file + '.webp';
+    poster.alt = '';
+    poster.loading = 'lazy';
+    const label = document.createElement('span');
+    label.textContent = title;
+    card.append(poster, label);
+    let preview;
+    const stopPreview = () => {
+      if (!preview) return;
+      preview.pause();
+      preview.remove();
+      preview = undefined;
+    };
+    card.addEventListener('pointerenter', event => {
+      if (event.pointerType !== 'mouse' || reducedMotion.matches || navigator.connection?.saveData) return;
+      preview = document.createElement('video');
+      preview.src = directory + file + '-loop.mp4';
+      preview.muted = true;
+      preview.playsInline = true;
+      preview.loop = true;
+      preview.setAttribute('aria-hidden', 'true');
+      card.append(preview);
+      preview.play().catch(stopPreview);
+    });
+    card.addEventListener('pointerleave', stopPreview);
+    card.addEventListener('click', () => {
+      stopPreview();
+      playReel(index);
+    });
+    gallery.append(card);
+
+    const track = document.createElement('button');
+    track.className = 'btn btn-secondary';
+    track.type = 'button';
+    track.textContent = title;
+    track.addEventListener('click', () => playReel(index));
+    playlist.append(track);
   }
 
-  function buildBackground() {
-    const sources = reducedMotion.matches || saveData
-      ? []
-      : reels.map(reel => reel.media).filter(Boolean).slice(0, smallScreen.matches ? 2 : 3);
-
-    if (sources.join('\n') !== backgroundSources.join('\n')) {
-      backgroundSources = sources;
-      hero.replaceChildren(...sources.map(src => {
-        const video = document.createElement('video');
-        video.src = src;
-        video.muted = true;
-        video.playsInline = true;
-        video.loop = true;
-        video.preload = 'none';
-        return video;
-      }));
-    }
-    hero.hidden = sources.length === 0;
-    motionButton.hidden = hero.hidden;
-    updateBackground();
-  }
-
-  function safeMedia(value) {
-    try {
-      const url = new URL(value);
-      if (url.protocol === 'https:' &&
-          /(?:^|\.)(?:cdninstagram\.com|fbcdn\.net)$/.test(url.hostname)) return url.href;
-    } catch {}
-    return '';
-  }
-
-  async function refresh() {
-    if (document.hidden) return;
-    try {
-      const response = await fetch(feed, { cache: 'no-cache' });
-      if (!response.ok) return;
-      const data = await response.json();
-      const updated = data.reels
-        .filter(reel => /^https:\/\/www\.instagram\.com\/reels?\/[\w-]+\/?$/.test(reel.permalink))
-        .map(reel => ({ ...reel, media: safeMedia(reel.media) }));
-      if (JSON.stringify(updated) === JSON.stringify(reels)) return;
-      const previous = reels[selected];
-      const retained = previous ? updated.findIndex(reel => reel.permalink === previous.permalink) : -1;
-      const playing = !player.paused && !player.hidden;
-      reels = updated;
-      selected = retained >= 0 && playing ? retained : 0;
-      if (!reels.length) {
-        player.pause();
-        player.removeAttribute('src');
-        player.load();
-        player.hidden = controls.hidden = link.hidden = true;
-        placeholder.hidden = false;
-        placeholder.querySelector('a').href = profile;
-        caption.textContent = 'Find the newest videos on Instagram.';
-      } else if (!previous || previous.permalink !== reels[selected].permalink ||
-          previous.media !== reels[selected].media || previous.caption !== reels[selected].caption) {
-        showReel();
-        if (playing && playerVisible && !player.hidden) player.play().catch(() => {});
-      }
-      controls.hidden = reels.length < 2;
-      buildBackground();
-      startPlayer();
-    } catch {
-      // Keep the current playlist when a refresh fails.
-    }
-  }
-
-  motionButton.addEventListener('click', () => {
-    backgroundPaused = !backgroundPaused;
-    motionButton.textContent = backgroundPaused ? 'Play background reels' : 'Pause background reels';
-    updateBackground();
-  });
-  document.getElementById('reel-prev').addEventListener('click', () => selectReel(-1));
-  document.getElementById('reel-next').addEventListener('click', () => selectReel(1));
+  document.getElementById('play-showreel').addEventListener('click', () => playReel(0));
   player.addEventListener('ended', () => {
-    if (reels.length > 1 && playerVisible) selectReel(1);
+    if (selected + 1 < reels.length) playReel(selected + 1);
   });
-  player.addEventListener('error', () => {
-    player.hidden = true;
-    placeholder.hidden = false;
+  dialog.addEventListener('close', () => {
+    player.pause();
+    syncBackdrop();
   });
-  const observer = new IntersectionObserver(([entry]) => {
-    playerVisible = entry.isIntersecting;
-    if (!playerVisible) player.pause();
-    startPlayer();
-  }, { threshold: 0.25 });
-  observer.observe(document.querySelector('.reel-widget'));
-  reducedMotion.addEventListener('change', buildBackground);
-  smallScreen.addEventListener('change', buildBackground);
-  document.addEventListener('visibilitychange', () => {
-    updateBackground();
-    if (document.hidden) player.pause();
-    else refresh();
+  motion.addEventListener('click', () => {
+    paused = !paused;
+    motion.textContent = paused ? 'Play background reels' : 'Pause background reels';
+    syncBackdrop();
   });
-  refresh();
-  setInterval(refresh, 5 * 60 * 1000);
+  document.addEventListener('visibilitychange', syncBackdrop);
+  reducedMotion.addEventListener('change', buildBackdrop);
+  mobile.addEventListener('change', buildBackdrop);
+  buildBackdrop();
+
+  const filters = document.getElementById('work-filters');
+  const cards = Array.from(document.querySelectorAll('#projects .project-card'));
+  const detail = document.getElementById('project-detail');
+  const detailBody = document.getElementById('project-detail-body');
+  const category = card => card.querySelector('.project-tag').textContent;
+  for (const label of ['All Work', ...new Set(cards.map(category))]) {
+    const button = document.createElement('button');
+    button.className = 'btn btn-secondary';
+    button.type = 'button';
+    button.textContent = label;
+    button.setAttribute('aria-pressed', String(label === 'All Work'));
+    button.addEventListener('click', () => {
+      for (const filter of filters.children) filter.setAttribute('aria-pressed', String(filter === button));
+      cards.forEach(card => { card.hidden = label !== 'All Work' && category(card) !== label; });
+    });
+    filters.append(button);
+  }
+  filters.hidden = false;
+  for (const card of cards) {
+    const button = document.createElement('button');
+    button.className = 'btn btn-secondary project-details-button';
+    button.type = 'button';
+    button.textContent = 'View project';
+    button.setAttribute('aria-label', 'View project: ' + card.querySelector('h3').textContent);
+    button.addEventListener('click', () => {
+      const expanded = card.cloneNode(true);
+      expanded.querySelector('.project-details-button').remove();
+      expanded.querySelector('h3').id = 'project-detail-title';
+      detailBody.replaceChildren(expanded);
+      detail.showModal();
+    });
+    card.append(button);
+  }
 })();
