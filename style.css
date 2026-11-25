@@ -2442,3 +2442,54 @@ a {
   0%, 75%, 100% { opacity: 0.82; }
   92% { opacity: 1; filter: drop-shadow(0 0 6px #ff83b7); }
 }
+
+/* Phone layouts */
+@media (max-width: 600px) {
+  .has-portfolio-deck .portfolio-deck > .section { padding: 4.35rem 0 1.6rem; }
+  .has-portfolio-deck .portfolio-deck > .section > .container { width: calc(100% - 1.4rem); }
+  .has-portfolio-deck .hero .hero-wrapper {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+  .has-portfolio-deck .hero-copy { padding: 1.1rem; }
+  .has-portfolio-deck .hero-name {
+    font-size: clamp(2rem, 9vw, 3.35rem);
+    line-height: 1.04;
+    letter-spacing: -0.045em;
+  }
+  .has-portfolio-deck .hero-subtitle { font-size: clamp(1rem, 4.2vw, 1.3rem); }
+  .has-portfolio-deck .hero-desc { font-size: 0.94rem; line-height: 1.6; }
+  .has-portfolio-deck .hero-status-pill { white-space: normal; padding-inline: 0.6rem; }
+  .has-portfolio-deck .hero-content .hero-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.45rem;
+  }
+  .has-portfolio-deck .hero-actions .btn {
+    min-height: 44px;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.82rem;
+    padding-inline: 0.45rem;
+  }
+  .has-portfolio-deck .hero-actions .btn-primary { grid-column: 1 / -1; }
+  .has-portfolio-deck .hero-visual { justify-self: center; width: min(62%, 220px); }
+  .has-portfolio-deck .home-cards { grid-template-columns: minmax(0, 1fr); margin-top: 1rem; }
+  .has-portfolio-deck .home-card {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    min-height: 44px;
+    padding-inline: 0.85rem;
+  }
+  .has-portfolio-deck .header .nav-menu .nav-link {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .has-portfolio-deck .creator-links .btn { min-height: 44px; }
+  .has-portfolio-deck .reel-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .has-portfolio-deck .reel-card span { padding: 0.65rem; }
+  .has-portfolio-deck .work-filters { gap: 0.4rem; }
+  .has-portfolio-deck .work-filters .btn { min-height: 44px; padding-inline: 0.65rem; }
+  .showreel-list .btn { min-height: 44px; }
+}
