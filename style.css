@@ -2287,7 +2287,7 @@ a {
   background: radial-gradient(ellipse at 18% 15%, rgba(255, 81, 128, 0.22), transparent 55%),
     radial-gradient(ellipse at 85% 78%, rgba(61, 166, 239, 0.24), transparent 55%), #0a0812;
 }
-.hero-reels::after { content: none; }
+.hero-reels::after { background: rgba(11, 7, 21, 0.1); }
 .has-portfolio-deck .portfolio-deck {
   background: transparent;
   scrollbar-width: none;
