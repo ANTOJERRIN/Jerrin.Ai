@@ -2414,7 +2414,7 @@ a {
 .sidebar-pointer-curve { stroke: #ff9ac8; }
 .sidebar-pointer-tip { stroke: #ffd0e7; stroke-width: 7; paint-order: stroke; }
 .sidebar-pointer-accents { opacity: 0.65; stroke-width: 2.5; }
-.sidebar-pointer-sweep { display: none; }
+.sidebar-pointer-sweep, .sidebar-pointer-travel { display: none; }
 @media (max-width: 760px) {
   .sidebar-pointer-curve { stroke-width: 4; }
   .sidebar-pointer-tip { stroke-width: 5; }
@@ -2425,6 +2425,12 @@ a {
     stroke: #ffe4f2;
     stroke-dasharray: 10 90;
     animation: sweep-toward-sidebar 3s linear infinite;
+  }
+  .sidebar-pointer-travel {
+    display: inline;
+    stroke: #fff0f8;
+    stroke-width: 5;
+    filter: drop-shadow(0 0 3px #180a26);
   }
   .sidebar-pointer-tip { animation: sidebar-tip-glow 3s ease-in-out infinite; }
 }
