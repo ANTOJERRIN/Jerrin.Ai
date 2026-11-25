@@ -2381,3 +2381,24 @@ a {
   background: none;
   text-shadow: 0 2px 5px #10091d, 0 0 18px rgba(15, 8, 28, 0.95);
 }
+
+/* Point visitors to the collapsed menu. */
+.sidebar-pointer { display: none; }
+.has-portfolio-deck .header:not(.menu-open) .sidebar-pointer {
+  display: grid;
+  grid-area: 1 / 2;
+  place-items: center;
+  width: 2.2rem;
+  padding-right: 0.35rem;
+  color: #ff83b7;
+  font-size: 1.55rem;
+  line-height: 1;
+  text-shadow: 0 0 8px rgba(255, 131, 183, 0.5);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .has-portfolio-deck .sidebar-pointer { animation: point-to-sidebar 850ms ease-in-out 5 alternate; }
+}
+@keyframes point-to-sidebar {
+  from { transform: translateX(0.2rem); }
+  to { transform: translateX(-0.3rem); }
+}
