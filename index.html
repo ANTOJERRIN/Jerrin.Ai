@@ -82,44 +82,27 @@
         </p>
         <div class="hero-actions">
           <a href="#projects" class="btn btn-primary">
-            Explore Projects <i class="fa-solid fa-arrow-trend-up"></i>
+            Explore Work <i class="fa-solid fa-arrow-trend-up"></i>
           </a>
           <a href="#resume-section" class="btn btn-secondary">
             <i class="fa-solid fa-file-lines"></i> View Resume
           </a>
-          <a href="#creator" class="btn btn-secondary">
-            Watch CodeWithJeru <i class="fa-brands fa-instagram"></i>
-          </a>
+          <button class="btn btn-secondary" id="play-showreel" type="button"><i class="fa-solid fa-play" aria-hidden="true"></i> Play showreel</button>
         </div>
       </div>
       
       <div class="hero-visual">
         <div class="profile-card-wrapper" id="profile-card-wrapper">
           <div class="profile-card" id="profile-card">
-            <img src="./jerrin-anto-profile.png" alt="Jerrin Anto seated beneath the AWS logo" class="profile-img">
+            <img src="./jerrin-anto-profile.png" alt="Jerrin Anto’s Relay gradient mark" class="profile-img" width="1080" height="1080">
             
-            <div class="profile-badge badge-top-right">
-              <img src="./Screenshot 2026-07-05 223953.png" alt="Nexstep Network" class="mini-logo-badge">
-              <div class="profile-badge-info">
-                <h4>Nexstep Network</h4>
-                <p>Core Developer</p>
-              </div>
-            </div>
-
-            <div class="profile-badge badge-bottom-left">
-              <i class="fa-solid fa-brain profile-badge-logo"></i>
-              <div class="profile-badge-info">
-                <h4>Former AI &amp; Python Intern</h4>
-                <p>GIGNI · May–Aug 2026</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="container home-cards" aria-label="Featured portfolio cards">
       <a class="glass-card home-card" href="#projects"><span>Projects</span><strong>Software &amp; AI</strong><span aria-hidden="true">↗</span></a>
-      <a class="glass-card home-card" href="#creator"><span>CodeWithJeru</span><strong>Latest reels</strong><span aria-hidden="true">↗</span></a>
+      <a class="glass-card home-card" href="#creator"><span>CodeWithJeru</span><strong>Featured reels</strong><span aria-hidden="true">↗</span></a>
       <a class="glass-card home-card" href="#experience"><span>Experience</span><strong>Teams &amp; internships</strong><span aria-hidden="true">↗</span></a>
     </div>
   </section>
@@ -356,6 +339,7 @@
         <h2 class="section-title gradient-text">Featured Projects</h2>
       </div>
 
+      <div class="work-filters" id="work-filters" aria-label="Filter projects" hidden></div>
       <div class="projects-grid">
         <article class="glass-card project-card">
           <div class="project-header">
@@ -830,24 +814,7 @@
           <a class="btn btn-secondary" href="#youtube">Tech2007 on YouTube</a>
         </div>
       </div>
-      <article class="glass-card reel-widget" aria-labelledby="latest-reels-title">
-        <div class="reel-screen">
-          <div class="reel-placeholder" id="reel-placeholder">
-            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-            <a href="https://www.instagram.com/codewithjeru/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
-          </div>
-          <video id="latest-reel" muted playsinline controls preload="metadata" aria-label="CodeWithJeru reel player" hidden></video>
-        </div>
-        <div class="reel-details">
-          <h3 id="latest-reels-title">Latest reels</h3>
-          <p id="reel-caption" aria-live="polite">Find the newest videos on Instagram.</p>
-          <div class="reel-controls" id="reel-controls" hidden>
-            <button class="btn btn-secondary" id="reel-prev" type="button" aria-label="Previous reel">←</button>
-            <button class="btn btn-secondary" id="reel-next" type="button" aria-label="Next reel">→</button>
-          </div>
-          <a id="reel-link" href="https://www.instagram.com/codewithjeru/" target="_blank" rel="noopener" hidden>Open this reel on Instagram ↗</a>
-        </div>
-      </article>
+      <div class="reel-gallery" id="reel-gallery" aria-label="Featured CodeWithJeru reels"></div>
     </div>
   </section>
 
@@ -1048,6 +1015,9 @@
         </div>
         
         <div class="social-links">
+          <a href="https://www.instagram.com/codewithjeru/" target="_blank" rel="noopener" class="social-btn" aria-label="CodeWithJeru on Instagram">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
           <a href="https://www.linkedin.com/in/jerrin-anto-74a836392" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn Profile">
             <i class="fa-brands fa-linkedin-in"></i>
           </a>
@@ -1080,6 +1050,20 @@
       </div>
     </div>
   </footer>
+
+  <dialog class="work-dialog" id="showreel" aria-labelledby="showreel-title">
+    <form method="dialog"><button class="btn btn-secondary" aria-label="Close showreel">Close</button></form>
+    <h2 class="section-title" id="showreel-title">CodeWithJeru showreel</h2>
+    <div class="showreel-layout">
+      <video id="showreel-video" controls playsinline preload="none" aria-label="Selected CodeWithJeru reel"></video>
+      <div class="showreel-list" id="showreel-list" aria-label="Select a reel"></div>
+    </div>
+  </dialog>
+
+  <dialog class="work-dialog" id="project-detail" aria-labelledby="project-detail-title">
+    <form method="dialog"><button class="btn btn-secondary" aria-label="Close project">Close</button></form>
+    <div id="project-detail-body"></div>
+  </dialog>
 
   <!-- Lightbox Modal for Images & Certificates -->
   <div class="lightbox-modal" id="lightbox-modal">

@@ -2274,3 +2274,61 @@ a {
   .home-card span:last-child { display: none; }
   .home-card strong { font-size: 0.83rem; }
 }
+
+/* Relay palette and showreel */
+:root {
+  --color-indigo: #bca3ff;
+  --color-violet: #ff83b7;
+  --color-cyan: #72caff;
+  --glass-bg: rgba(21, 16, 39, 0.86);
+  --glass-border: rgba(166, 122, 255, 0.28);
+}
+.has-portfolio-deck body {
+  background: radial-gradient(ellipse at 18% 15%, rgba(255, 81, 128, 0.22), transparent 55%),
+    radial-gradient(ellipse at 85% 78%, rgba(61, 166, 239, 0.24), transparent 55%), #0a0812;
+}
+.hero-reels::after {
+  background: linear-gradient(110deg, rgba(11, 7, 21, 0.78), rgba(12, 7, 25, 0.22)),
+    linear-gradient(0deg, rgba(7, 5, 14, 0.72), transparent 68%);
+}
+.has-portfolio-deck .portfolio-deck { background: rgba(11, 8, 22, 0.58); }
+.gradient-text { background-image: linear-gradient(115deg, #ff678f, #ad89ff 54%, #62c7ff); }
+.has-portfolio-deck .profile-card {
+  aspect-ratio: 1;
+  max-height: none;
+  background: rgba(10, 7, 24, 0.77);
+  border: 1px solid rgba(187, 136, 250, 0.42);
+}
+.has-portfolio-deck .profile-img { width: 100%; height: 100%; object-fit: contain; }
+.reel-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.7rem; }
+.reel-card { overflow: hidden; color: var(--text-primary); font: inherit; text-align: left; cursor: pointer; }
+.reel-card img { display: block; width: 100%; aspect-ratio: 9 / 13; object-fit: cover; }
+.reel-card span { display: block; padding: 0.55rem; font-size: 0.83rem; }
+.work-filters, .showreel-list { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.work-filters { margin-bottom: 1.4rem; }
+.work-filters[hidden], .project-card[hidden] { display: none; }
+.work-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(760px, 94vw);
+  max-height: 91dvh;
+  padding: clamp(0.9rem, 3vw, 1.8rem);
+  color: var(--text-primary);
+  background: #171126;
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+}
+.work-dialog::backdrop { background: rgba(5, 3, 12, 0.86); }
+.work-dialog form { display: flex; justify-content: flex-end; margin-bottom: 0.5rem; }
+.showreel-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.65fr); gap: 1rem; align-items: start; margin-top: 1rem; }
+.showreel-layout video { display: block; width: 100%; aspect-ratio: 9 / 16; max-height: 62dvh; background: #090613; }
+.showreel-list button[aria-pressed="true"], .work-filters button[aria-pressed="true"] { background: rgba(151, 97, 241, 0.33); color: white; }
+.project-details-button { align-self: flex-start; margin-top: 0.8rem; }
+@media (max-width: 480px) {
+  .showreel-layout { grid-template-columns: 1fr; }
+  .showreel-layout video { max-height: 49dvh; }
+}
+
+.reel-card { position: relative; }
+.reel-card video { position: absolute; inset: 0 0 auto; width: 100%; aspect-ratio: 9 / 13; object-fit: cover; pointer-events: none; }
