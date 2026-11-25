@@ -1,34 +1,44 @@
 document.addEventListener('DOMContentLoaded', () => {
   
-  /* ==========================================
-     MOBILE NAVIGATION MENU
-     ========================================== */
-  const mobileToggle = document.getElementById('mobile-toggle');
-  const navMenu = document.querySelector('.nav-menu-wrapper');
+  const header = document.getElementById('header');
+  const menuToggle = document.getElementById('mobile-toggle');
   const navLinks = document.querySelectorAll('.nav-link');
+  let openedOnHover = false;
 
-  if (mobileToggle && navMenu) {
-    function setMenuOpen(open) {
-      mobileToggle.classList.toggle('active', open);
-      mobileToggle.setAttribute('aria-expanded', String(open));
-      navMenu.classList.toggle('active', open);
-    }
-
-    mobileToggle.addEventListener('click', () => {
-      setMenuOpen(mobileToggle.getAttribute('aria-expanded') === 'false');
-    });
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => setMenuOpen(false));
-    });
-
-    document.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && mobileToggle.getAttribute('aria-expanded') === 'true') {
-        setMenuOpen(false);
-        mobileToggle.focus();
-      }
-    });
+  function setMenuOpen(open, fromHover = false) {
+    openedOnHover = open && fromHover;
+    header.classList.toggle('menu-open', open);
+    menuToggle.classList.toggle('active', open);
+    menuToggle.setAttribute('aria-expanded', String(open));
+    document.getElementById('portfolio-navigation').classList.toggle('active', open);
   }
+
+  header.addEventListener('pointerenter', event => {
+    if (event.pointerType === 'mouse' && !header.classList.contains('menu-open')) {
+      setMenuOpen(true, true);
+    }
+  });
+  header.addEventListener('pointerleave', () => {
+    if (openedOnHover && !header.contains(document.activeElement)) setMenuOpen(false);
+  });
+  menuToggle.addEventListener('click', () => {
+    setMenuOpen(!header.classList.contains('menu-open'));
+  });
+  header.addEventListener('focusout', event => {
+    if (!header.contains(event.relatedTarget) && !header.matches(':hover')) setMenuOpen(false);
+  });
+  document.addEventListener('pointerdown', event => {
+    if (!header.contains(event.target)) {
+      if (header.contains(document.activeElement)) menuToggle.focus();
+      setMenuOpen(false);
+    }
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && header.classList.contains('menu-open')) {
+      setMenuOpen(false);
+      menuToggle.focus();
+    }
+  });
 
   const deck = document.getElementById('portfolio-deck');
   const panels = new Map(Array.from(deck.children, panel => [panel.id, panel]));
@@ -61,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const panelId = link.hash.slice(1);
     if (!panels.has(panelId)) return;
     event.preventDefault();
+    if (header.contains(link)) setMenuOpen(false);
     if (location.hash !== link.hash) history.pushState(null, '', link.hash);
     showPanel(panelId, true);
   });
