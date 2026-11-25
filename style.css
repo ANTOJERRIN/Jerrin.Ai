@@ -2287,9 +2287,14 @@ a {
   background: radial-gradient(ellipse at 18% 15%, rgba(255, 81, 128, 0.22), transparent 55%),
     radial-gradient(ellipse at 85% 78%, rgba(61, 166, 239, 0.24), transparent 55%), #0a0812;
 }
-/* Together the backdrop and deck leave about 80% of the reel visible. */
-.hero-reels::after { background: rgba(11, 7, 21, 0.08); }
-.has-portfolio-deck .portfolio-deck { background: rgba(11, 8, 22, 0.13); }
+.hero-reels::after { content: none; }
+.has-portfolio-deck .portfolio-deck {
+  background: transparent;
+  scrollbar-width: none;
+  scrollbar-gutter: auto;
+}
+.has-portfolio-deck .portfolio-deck::-webkit-scrollbar { display: none; }
+.hero-reels:not([hidden]) ~ .portfolio-deck .hero-water { display: none; }
 .has-portfolio-deck .hero-content {
   text-shadow: 0 1px 4px rgba(8, 5, 18, 0.95), 0 0 14px rgba(8, 5, 18, 0.75);
 }
