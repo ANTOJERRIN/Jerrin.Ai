@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
       card.style.transform = `translateY(-8px) scale(1.02) perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     });
 
-    cardWrapper && card.addEventListener('mouseleave', () => {
+    card.addEventListener('mouseleave', () => {
       card.style.transform = '';
       card.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease';
     });
