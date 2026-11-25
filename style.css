@@ -2287,9 +2287,9 @@ a {
   background: radial-gradient(ellipse at 18% 15%, rgba(255, 81, 128, 0.22), transparent 55%),
     radial-gradient(ellipse at 85% 78%, rgba(61, 166, 239, 0.24), transparent 55%), #0a0812;
 }
-/* The two translucent layers leave roughly half the reel visible through the deck. */
-.hero-reels::after { background: rgba(11, 7, 21, 0.23); }
-.has-portfolio-deck .portfolio-deck { background: rgba(11, 8, 22, 0.35); }
+/* Together the backdrop and deck leave about 80% of the reel visible. */
+.hero-reels::after { background: rgba(11, 7, 21, 0.08); }
+.has-portfolio-deck .portfolio-deck { background: rgba(11, 8, 22, 0.13); }
 .has-portfolio-deck .hero-content {
   text-shadow: 0 1px 4px rgba(8, 5, 18, 0.95), 0 0 14px rgba(8, 5, 18, 0.75);
 }
@@ -2333,3 +2333,46 @@ a {
 
 .reel-card { position: relative; }
 .reel-card video { position: absolute; inset: 0 0 auto; width: 100%; aspect-ratio: 9 / 13; object-fit: cover; pointer-events: none; }
+
+/* Collapsible portfolio navigation */
+.has-portfolio-deck body { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); }
+.has-portfolio-deck .header {
+  position: fixed;
+  top: clamp(0.95rem, 2.5vw, 2rem);
+  left: clamp(0.95rem, 2.5vw, 2rem);
+  z-index: 100;
+  width: max-content;
+  max-width: calc(100vw - 2rem);
+  max-height: calc(100dvh - 4rem);
+  border-radius: 0.85rem;
+  background: rgba(18, 12, 35, 0.96);
+}
+.has-portfolio-deck .header.menu-open { width: min(228px, calc(100vw - 2rem)); }
+.has-portfolio-deck .nav-container {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  width: auto;
+  padding: 0.35rem;
+  gap: 0.4rem 0.75rem;
+}
+.has-portfolio-deck .header.menu-open .nav-container { padding: 0.55rem; }
+.has-portfolio-deck .header .mobile-toggle {
+  display: flex;
+  grid-area: 1 / 1;
+  position: static;
+  width: 44px;
+  height: 44px;
+  padding: 9px;
+}
+.has-portfolio-deck .header:not(.menu-open) :is(.nav-menu-wrapper, .logo, .reel-motion) { display: none; }
+.has-portfolio-deck .nav-menu-wrapper { grid-column: 1 / -1; grid-row: 2; }
+.has-portfolio-deck .nav-menu { flex-direction: column; }
+.has-portfolio-deck .reel-motion { grid-column: 1 / -1; }
+.has-portfolio-deck .portfolio-deck > .section { padding-top: clamp(4.1rem, 6vw, 5.1rem); }
+.has-portfolio-deck .hero-name {
+  color: #ff83b7;
+  -webkit-text-fill-color: currentColor;
+  background: none;
+  text-shadow: 0 2px 5px #10091d, 0 0 18px rgba(15, 8, 28, 0.95);
+}
