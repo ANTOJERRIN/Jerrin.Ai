@@ -2382,23 +2382,37 @@ a {
   text-shadow: 0 2px 5px #10091d, 0 0 18px rgba(15, 8, 28, 0.95);
 }
 
-/* Point visitors to the collapsed menu. */
+/* Guide visitors around the home card toward the menu. */
 .sidebar-pointer { display: none; }
-.has-portfolio-deck .header:not(.menu-open) .sidebar-pointer {
-  display: grid;
-  grid-area: 1 / 2;
-  place-items: center;
-  width: 2.2rem;
-  padding-right: 0.35rem;
-  color: #ff83b7;
-  font-size: 1.55rem;
-  line-height: 1;
-  text-shadow: 0 0 8px rgba(255, 131, 183, 0.5);
+.has-portfolio-deck:has(#home:not([hidden])) .header:not(.menu-open) + .sidebar-pointer {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  fill: none;
+  stroke: #ff83b7;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 5px rgba(19, 7, 31, 0.95));
+}
+.sidebar-pointer path { vector-effect: non-scaling-stroke; }
+.sidebar-pointer-curve { opacity: 0.75; }
+@media (max-width: 760px) {
+  .has-portfolio-deck .sidebar-pointer { stroke-width: 4; }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .has-portfolio-deck .sidebar-pointer { animation: point-to-sidebar 850ms ease-in-out 5 alternate; }
+  .sidebar-pointer-curve { animation: draw-sidebar-guide 1.4s ease-out both; }
+  .sidebar-pointer-tip { animation: show-sidebar-tip 0.25s ease-out 1.1s both; }
 }
-@keyframes point-to-sidebar {
-  from { transform: translateX(0.2rem); }
-  to { transform: translateX(-0.3rem); }
+@keyframes draw-sidebar-guide {
+  from { stroke-dasharray: 100; stroke-dashoffset: 100; }
+  to { stroke-dasharray: 100; stroke-dashoffset: 0; }
+}
+@keyframes show-sidebar-tip {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
