@@ -2293,8 +2293,20 @@ a {
 }
 .has-portfolio-deck .portfolio-deck::-webkit-scrollbar { display: none; }
 .hero-reels:not([hidden]) ~ .portfolio-deck .hero-water { display: none; }
+/* Keep the reel visible through the intro without competing with the text. */
 .has-portfolio-deck .hero-content {
-  text-shadow: 0 1px 4px rgba(8, 5, 18, 0.95), 0 0 14px rgba(8, 5, 18, 0.75);
+  min-width: 0;
+  padding: clamp(0.9rem, 2.6vw, 2.25rem);
+  border: 1px solid rgba(188, 163, 255, 0.35);
+  border-radius: 1.25rem;
+  background: rgba(11, 8, 22, 0.667);
+  box-shadow: 0 12px 28px rgba(6, 4, 13, 0.28);
+  text-shadow: 0 1px 4px rgba(8, 5, 18, 0.95);
+}
+.has-portfolio-deck .hero-content .hero-desc { color: #ece9f4; }
+@media (max-width: 520px) {
+  .has-portfolio-deck .hero .hero-wrapper { grid-template-columns: minmax(0, 1fr); }
+  .has-portfolio-deck .hero-visual { justify-self: center; width: min(100%, 220px); }
 }
 .gradient-text { background-image: linear-gradient(115deg, #ff678f, #ad89ff 54%, #62c7ff); }
 .has-portfolio-deck .profile-card {
