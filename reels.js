@@ -9,19 +9,17 @@
   ];
   const directory = './media/reels/';
   const backdrop = document.getElementById('hero-reels');
-  const motion = document.getElementById('reel-motion');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const mobile = matchMedia('(max-width: 760px)');
   const player = document.getElementById('showreel-video');
   const dialog = document.getElementById('showreel');
   const gallery = document.getElementById('reel-gallery');
   const playlist = document.getElementById('showreel-list');
-  let paused = false;
   let selected = 0;
 
   function syncBackdrop() {
     for (const video of backdrop.children) {
-      if (paused || document.hidden || dialog.open) video.pause();
+      if (document.hidden || dialog.open) video.pause();
       else video.play().catch(() => {});
     }
   }
@@ -30,7 +28,6 @@
     const count = mobile.matches ? 2 : 3;
     backdrop.replaceChildren();
     backdrop.hidden = reducedMotion.matches || Boolean(navigator.connection?.saveData);
-    motion.hidden = backdrop.hidden;
     if (backdrop.hidden) return;
     for (let lane = 0; lane < count; lane++) {
       const video = document.createElement('video');
@@ -119,11 +116,7 @@
     player.pause();
     syncBackdrop();
   });
-  motion.addEventListener('click', () => {
-    paused = !paused;
-    motion.textContent = paused ? 'Play background reels' : 'Pause background reels';
-    syncBackdrop();
-  });
+  player.addEventListener('contextmenu', event => event.preventDefault());
   document.addEventListener('visibilitychange', syncBackdrop);
   reducedMotion.addEventListener('change', buildBackdrop);
   mobile.addEventListener('change', buildBackdrop);
