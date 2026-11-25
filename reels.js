@@ -13,7 +13,6 @@
   const saveData = navigator.connection?.saveData;
   let reels = [];
   let selected = 0;
-  let heroVisible = false;
   let playerVisible = false;
   let backgroundPaused = false;
   let autoStarted = false;
@@ -54,7 +53,7 @@
   }
 
   function updateBackground() {
-    if (hero.hidden || backgroundPaused || !heroVisible || document.hidden) {
+    if (hero.hidden || backgroundPaused || document.hidden) {
       hero.querySelectorAll('video').forEach(video => video.pause());
       return;
     }
@@ -142,19 +141,11 @@
     player.hidden = true;
     placeholder.hidden = false;
   });
-  const observer = new IntersectionObserver(entries => {
-    for (const entry of entries) {
-      if (entry.target.id === 'home') {
-        heroVisible = entry.isIntersecting;
-        updateBackground();
-      } else {
-        playerVisible = entry.isIntersecting;
-        if (!playerVisible) player.pause();
-        startPlayer();
-      }
-    }
+  const observer = new IntersectionObserver(([entry]) => {
+    playerVisible = entry.isIntersecting;
+    if (!playerVisible) player.pause();
+    startPlayer();
   }, { threshold: 0.25 });
-  observer.observe(document.getElementById('home'));
   observer.observe(document.querySelector('.reel-widget'));
   reducedMotion.addEventListener('change', buildBackground);
   smallScreen.addEventListener('change', buildBackground);
