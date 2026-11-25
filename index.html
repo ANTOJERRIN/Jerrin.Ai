@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jerrin Anto | AI Developer, Core Startup Engineer & Founder</title>
+  <meta name="theme-color" content="#100e24">
+  <title>Jerrin Anto | AI Developer, Startup Engineer &amp; Technical Creator</title>
   
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Official Portfolio of Jerrin Anto — AI Developer, Core Developer at Nexstep Network, Founder of ForMa, Open Source Contributor, and CS (AI/ML) Undergraduate at REVA University.">
+  <meta name="description" content="Official Portfolio of Jerrin Anto — AI Developer, Core Developer at Nexstep Network, Technical Creator at CodeWithJeru, Open Source Contributor, and CS (AI/ML) Undergraduate at REVA University.">
   <meta name="keywords" content="Jerrin Anto, AI Developer, Nexstep Network, ForMa, GIGNI, Scaler School of Technology, REVA University, AQUA-ETHIC, Lifeline, DriveX, Workify, Open Source Connect, CodeWithJeru, Portfolio">
   <meta name="author" content="Jerrin Anto">
   
   <!-- Open Graph / Facebook / LinkedIn -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Jerrin Anto | AI Developer & Founder">
-  <meta property="og:description" content="AI Developer, Core Developer at Nexstep Network, Founder of ForMa, and AI/ML builder at REVA University.">
+  <meta property="og:title" content="Jerrin Anto | AI Developer &amp; Technical Creator">
+  <meta property="og:description" content="AI Developer, Core Developer at Nexstep Network, Technical Creator at CodeWithJeru, and AI/ML student at REVA University.">
   <meta property="og:image" content="./IMG_20260516_212312.jpg">
   
   <!-- Stylesheets -->
@@ -24,32 +25,28 @@
 </head>
 <body>
 
-  <!-- Background Ambient Glows -->
-  <div class="ambient-glow"></div>
-  <div class="ambient-glow glow-secondary"></div>
-
   <!-- ==========================================
        HEADER & FLOATING NAVBAR
        ========================================== -->
   <header class="header" id="header">
     <div class="container nav-container">
       <a href="#home" class="logo">
-        <span class="logo-accent">J</span>errin Anto<span class="logo-dot"></span>
+        Jerrin Anto<span class="logo-dot"></span>
       </a>
       
-      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation" aria-controls="nav-menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
       
-      <nav class="nav-menu-wrapper">
+      <nav class="nav-menu-wrapper" aria-label="Main navigation">
         <ul class="nav-menu" id="nav-menu">
           <li><a href="#home" class="nav-link active">Home</a></li>
           <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#experience" class="nav-link">Experience</a></li>
           <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#youtube" class="nav-link">YouTube</a></li>
+          <li><a href="#creator" class="nav-link">Creator</a></li>
           <li><a href="#skills" class="nav-link">Skills</a></li>
           <li><a href="#education" class="nav-link">Education</a></li>
           <li><a href="#resume-section" class="nav-link">Resume</a></li>
@@ -64,17 +61,19 @@
        HERO SECTION
        ========================================== -->
   <section class="section hero" id="home">
+    <div class="hero-water" aria-hidden="true"></div>
+    <div class="hero-reels" id="hero-reels" aria-hidden="true" hidden></div>
     <div class="container hero-wrapper">
       <div class="hero-content">
         <div class="hero-status-pill">
           <span class="status-indicator"></span> Available for AI Engineering &amp; High-Impact Roles
         </div>
         <h1 class="hero-name gradient-text glow-text">Jerrin Anto</h1>
-        <div class="hero-subtitle">
-          I'm a <span class="typed-text" id="typed-text"></span>
-        </div>
+        <p class="hero-subtitle">
+          AI developer &amp; technical creator
+        </p>
         <p class="hero-desc">
-          AI Developer and Computer Science undergraduate (AI/ML) at <strong>REVA University</strong>. Core Developer at <strong>Nexstep Network</strong> and Founder of <strong>ForMa</strong>. I build software with Python, React, FastAPI, and PostgreSQL, with a focus on generative AI and API integration.
+          AI Developer and Computer Science undergraduate (AI/ML) at <strong>REVA University</strong>. I build prototypes at <strong>Nexstep Network</strong> and publish tutorials through <strong>CodeWithJeru</strong>. My work spans Python, React, FastAPI, Supabase, and PostgreSQL, with a focus on generative AI and API integration.
         </p>
         <div class="hero-actions">
           <a href="#projects" class="btn btn-primary">
@@ -83,15 +82,15 @@
           <a href="#resume-section" class="btn btn-secondary">
             <i class="fa-solid fa-file-lines"></i> View Resume
           </a>
-          <a href="https://www.youtube.com/@Tech2007-g5m" target="_blank" rel="noopener" class="btn btn-youtube">
-            Visit Tech2007 <i class="fa-brands fa-youtube"></i>
+          <a href="#creator" class="btn btn-secondary">
+            Watch CodeWithJeru <i class="fa-brands fa-instagram"></i>
           </a>
         </div>
       </div>
       
+      <button class="btn btn-secondary reel-motion" id="reel-motion" type="button" hidden>Pause background reels</button>
       <div class="hero-visual">
         <div class="profile-card-wrapper" id="profile-card-wrapper">
-          <div class="profile-card-glow"></div>
           <div class="profile-card" id="profile-card">
             <img src="./IMG_20260516_212312.jpg" alt="Jerrin Anto at Microsoft Bangalore" class="profile-img">
             
@@ -122,7 +121,6 @@
   <section class="section about" id="about">
     <div class="container">
       <div class="section-header">
-        <span class="section-tagline">Introduction &amp; Philosophy</span>
         <h2 class="section-title gradient-text">About Me</h2>
       </div>
       
@@ -133,7 +131,7 @@
             I am currently pursuing my <strong>B.Tech in Computer Science (Artificial Intelligence and Machine Learning)</strong> at <strong>REVA University</strong>, Bengaluru. I work on full-stack projects in healthcare, water-quality monitoring, scheduling, and workshop hosting.
           </p>
           <p>
-            I collaborate on early-stage products at <strong>Nexstep Network</strong> and organize student projects and workshops through <strong>ForMa</strong>. I publish technical walkthroughs through <strong>CodeWithJeru</strong> and contribute to <strong>Open Source Connect</strong>.
+            I collaborate on early-stage products at <strong>Nexstep Network</strong> and previously led student projects and developer workshops at <strong>ForMa</strong>. I publish technical walkthroughs through <strong>CodeWithJeru</strong> and contribute to <strong>Open Source Connect</strong>.
           </p>
           
           <div class="about-stats">
@@ -172,7 +170,7 @@
               <img src="./forma-logo.jpg" alt="ForMa company logo" class="highlight-startup-logo" width="42" height="42" loading="lazy">
             </div>
             <div class="highlight-info">
-              <h4>Founder — ForMa</h4>
+              <h4>Former Founder — ForMa</h4>
               <p>Founded a <a href="https://forma-9c8t.onrender.com/">student technology community</a> focused on AI, cloud computing, and software development.</p>
             </div>
           </div>
@@ -197,7 +195,6 @@
   <section class="section experience" id="experience">
     <div class="container">
       <div class="section-header">
-        <span class="section-tagline">Professional Trajectory</span>
         <h2 class="section-title gradient-text">Work Experience &amp; Roles</h2>
       </div>
       
@@ -291,15 +288,15 @@
         <!-- Job 5: ForMa -->
         <div class="timeline-item timeline-right">
           <div class="timeline-card">
-            <span class="timeline-date">Oct 2025 – Present</span>
-            <h3 class="timeline-role">Founder</h3>
+            <span class="timeline-date">Started Oct 2025 · Former role</span>
+            <h3 class="timeline-role">Former Founder</h3>
             <span class="timeline-company forma-company"><img src="./forma-logo.jpg" alt="ForMa company logo" class="forma-timeline-logo" width="36" height="36" loading="lazy"> ForMa</span>
             <span class="timeline-loc"><i class="fa-solid fa-location-dot"></i> Bengaluru</span>
             <div class="timeline-desc">
               <p>Founded a student technology community focused on AI, cloud computing, and software development.</p>
               <ul>
-                <li>Coordinate contributors across colleges on projects, research, idea validation, and product development.</li>
-                <li>Organize developer-tool workshops and introductory hackathons.</li>
+                <li>Coordinated contributors across colleges on projects, research, idea validation, and product development.</li>
+                <li>Organized developer-tool workshops and introductory hackathons.</li>
               </ul>
             </div>
           </div>
@@ -347,7 +344,6 @@
   <section class="section projects" id="projects">
     <div class="container">
       <div class="section-header">
-        <span class="section-tagline">Engineered Solutions</span>
         <h2 class="section-title gradient-text">Featured Projects</h2>
       </div>
 
@@ -481,7 +477,6 @@
   <section class="section achievements-section" id="achievements">
     <div class="container">
       <div class="section-header">
-        <span class="section-tagline">Honors &amp; Recognition</span>
         <h2 class="section-title gradient-text">Major Achievements</h2>
       </div>
 
@@ -573,7 +568,6 @@
   <section class="section short-film-section" id="short-film">
     <div class="container">
       <div class="section-header">
-        <span class="section-tagline">Creative Excellence</span>
         <h2 class="section-title gradient-text">Fresher's Week 1st Prize — Short Film</h2>
       </div>
 
@@ -611,35 +605,11 @@
   </section>
 
   <!-- ==========================================
-       YOUTUBE CHANNEL SECTION
-       ========================================== -->
-  <section class="section youtube" id="youtube">
-    <div class="container">
-      <div class="youtube-card glass-card">
-        <div class="youtube-content">
-          <span class="section-tagline">Featured Channel</span>
-          <h2 class="section-title gradient-text">Tech2007 on YouTube</h2>
-          <p>
-            A clean gateway to my Tech2007 YouTube channel for tech content, coding tutorials, Linux workflows, AI ideas, and builder-focused learning.
-          </p>
-          <div class="youtube-actions">
-            <a href="https://www.youtube.com/@Tech2007-g5m" target="_blank" rel="noopener" class="btn btn-youtube btn-youtube-large" aria-label="Open Tech2007 YouTube channel">
-              <i class="fa-brands fa-youtube"></i> Visit Tech2007 Channel
-            </a>
-            <span class="youtube-handle">@Tech2007-g5m</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================
        SKILLS & CERTIFICATIONS SECTION
        ========================================== -->
   <section class="section skills" id="skills">
     <div class="container">
       <div class="section-header">
-        <span class="section-tagline">Technical Arsenal</span>
         <h2 class="section-title gradient-text">Skills &amp; Credentials</h2>
       </div>
       
@@ -774,7 +744,6 @@
   <section class="section education" id="education">
     <div class="container">
       <div class="section-header">
-        <span class="section-tagline">Academic Foundation</span>
         <h2 class="section-title gradient-text">Education</h2>
       </div>
       
@@ -829,6 +798,7 @@
         <h2 class="section-title gradient-text">Resume</h2>
       </div>
       <div class="resume-document-wrapper">
+        <p class="resume-role-note">I have since stepped down as founder of ForMa.</p>
         <div class="resume-actions">
           <a href="./jerrin-anto-resume.pdf" target="_blank" rel="noopener" class="btn btn-primary">Open PDF</a>
           <a href="./jerrin-anto-resume.pdf" download class="btn btn-secondary">Download PDF</a>
@@ -840,14 +810,42 @@
     </div>
   </section>
 
-  <!-- ==========================================
-       YOUTUBE CHANNEL SECTION
-       ========================================== -->
+  <section class="section creator" id="creator" aria-labelledby="creator-title">
+    <div class="container creator-grid">
+      <div class="creator-intro">
+        <a class="creator-handle" href="https://www.instagram.com/codewithjeru/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram" aria-hidden="true"></i> @codewithjeru</a>
+        <h2 class="section-title gradient-text" id="creator-title">CodeWithJeru</h2>
+        <p>Short tutorials and project walkthroughs on AI, software engineering, cloud computing, Linux, and developer workflows.</p>
+        <div class="creator-links">
+          <a class="btn btn-primary" href="https://www.instagram.com/codewithjeru/" target="_blank" rel="noopener">Explore Instagram <span aria-hidden="true">↗</span></a>
+          <a class="btn btn-secondary" href="#youtube">Tech2007 on YouTube</a>
+        </div>
+      </div>
+      <article class="glass-card reel-widget" aria-labelledby="latest-reels-title">
+        <div class="reel-screen">
+          <div class="reel-placeholder" id="reel-placeholder">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            <a href="https://www.instagram.com/codewithjeru/" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+          </div>
+          <video id="latest-reel" muted playsinline controls preload="metadata" aria-label="CodeWithJeru reel player" hidden></video>
+        </div>
+        <div class="reel-details">
+          <h3 id="latest-reels-title">Latest reels</h3>
+          <p id="reel-caption" aria-live="polite">Find the newest videos on Instagram.</p>
+          <div class="reel-controls" id="reel-controls" hidden>
+            <button class="btn btn-secondary" id="reel-prev" type="button" aria-label="Previous reel">←</button>
+            <button class="btn btn-secondary" id="reel-next" type="button" aria-label="Next reel">→</button>
+          </div>
+          <a id="reel-link" href="https://www.instagram.com/codewithjeru/" target="_blank" rel="noopener" hidden>Open this reel on Instagram ↗</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <section class="section youtube" id="youtube">
     <div class="container">
       <div class="youtube-card glass-card">
         <div class="youtube-content">
-          <span class="section-tagline">Featured Channel</span>
           <h2 class="section-title gradient-text">Tech2007 on YouTube</h2>
           <p>
             Watch tutorials, Linux workflows, AI breakdowns, and systems programming guides created on Tech2007 directly from this preview:
@@ -885,7 +883,6 @@
   <section class="section tech-contributions-section" id="tech-contributions">
     <div class="container">
       <div class="section-header">
-        <span class="section-tagline">Developer Footprint</span>
         <h2 class="section-title gradient-text">Platforms &amp; Ecosystem</h2>
       </div>
 
@@ -1091,5 +1088,6 @@
 
   <!-- Scripts -->
   <script src="script.js"></script>
+  <script src="reels.js" defer></script>
 </body>
 </html>
