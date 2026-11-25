@@ -2397,9 +2397,9 @@ a {
 .has-portfolio-deck:has(#home:not([hidden])) .header:not(.menu-open) + .sidebar-pointer {
   display: block;
   position: fixed;
-  inset: 0;
+  inset: 0 0 0 calc(clamp(0.95rem, 2.5vw, 2rem) + 3.65rem);
   z-index: 90;
-  width: 100%;
+  width: calc(100% - clamp(0.95rem, 2.5vw, 2rem) - 3.65rem);
   height: 100%;
   pointer-events: none;
   fill: none;
